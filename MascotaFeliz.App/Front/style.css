@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800;100;1200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+    justify-content: center;
+    align-items: center;
+    background-attachment:fixed;
+    background-color: #F9ECD9;
+    margin-top: 50px ;
+    /*#FC6F42
+    #222222
+    #FAC43D
+    #3D2F2C
+    #02AD9D
+    #F9ECD9*/
+}
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position:fixed;
+    top: 0;
+    width: 100%;
+    background-color: #F9ECD9;
+    box-shadow: 0px 0px 10px 0px #3D2F2C;
+    overflow:visible;
+    display: inline-block;
+}
+nav .show-menu {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 20px 15px;
+    width: 55px;
+    color: #3D2F2C;
+    text-align: center;
+    text-decoration: none;
+    display: none;
+    cursor: pointer;
+    user-select: none;
+    float: right;
+}
+.arrow-down-1{
+    border: solid #3D2F2C;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 2px;
+    transform: translate(0px, -2px) rotate(45deg);
+    transition: all 0.3s ease;
+}
+/*Hide checkbox*/
+input[type=checkbox]{
+    display: none;
+}
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ .menu{
+    display:block;
+}
+
+.logo{
+    display: inline;
+    vertical-align: middle;
+}
+.logo .svg-logo img{
+    float: left;
+}
+.logo .svg-logo img{
+    height: 55px;
+    padding: 8px;
+}
+.logo .text-logo{
+    display: inline-block;
+    font-size: 30px;
+    line-height: 35px;
+    padding: 10px 30px 10px 0px;
+    font-weight: 700;
+    color:#02AD9D;
+    text-align: center;
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+li {
+    float: left;
+}
+li hr{
+    border-top: 1px solid #b79087;
+    border-bottom: 1px solid #b79087;
+    background-color: #b79087;
+
+}
+li a:not( .dropdown-content a, .text-logo, .svg-logo), .dropbtn {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 20px 15px;
+    color: #3D2F2C;
+    text-align: center;
+    text-decoration: none;
+    background-color: #F9ECD9;
+    transition: all 0.3s ease;
+}
+
+li a:hover:not( .dropdown-content a, .text-logo, .svg-logo),
+.dropbtn:hover:not(.active) {
+    box-shadow: inset 0 -5px 0 #FC6F42;
+    color: #FC6F42;
+    transition: all 0.3s ease;
+}
+li a:hover:not( .dropdown-content a, .text-logo, .svg-logo) > .arrow-down,
+.dropbtn:hover:not(.active) > .arrow-down{
+    border: solid #FC6F42;
+    border-width: 0 3px 3px 0;
+    transition: all 0.3s ease;
+}
+
+label:hover > .arrow-down-1{
+    border: solid #FC6F42;
+    border-width: 0 3px 3px 0;
+    transition: all 0.3s ease;
+}
+input[type=checkbox]:checked ~ label .arrow-down-1{
+    border: solid #FC6F42;
+    border-width: 0 3px 3px 0;
+    transform: translate(0px, 2px) rotate(-135deg);
+    transition: all 0.3s ease;
+}
+.active:not(.dropdown-content a){
+    font-weight: 700;
+    box-shadow: inset 0 -5px 0 #3D2F2C;
+    background-color: #F9ECD9;
+    transition: all 0.3s ease;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+.arrow-down {
+    border: solid #3D2F2C;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 2px;
+    transform: translate(5px, -3px) rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F9ECD9;
+    min-width: 160px;
+    box-shadow: 0px 8px 10px 0px #3D2F2C;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #3D2F2C;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover:not(.active) {
+    box-shadow: inset 0 -5px 0 #FC6F42;
+    color: #FC6F42;
+    transition: all 0.3s ease;
+}
+.dropdown-content .active:hover {
+    background-color: #FC6F42;
+    color: #F9ECD9;
+    transition: all 0.3s ease; 
+}
+.dropdown-content .active{
+    background-color: #3D2F2C;
+    color: #F9ECD9;
+    transition: all 0.3s ease; 
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .arrow-down{
+    transform: translate(5px, 1px) rotate(-135deg);
+
+}
+
+
+
+
+
+.contenido{
+    background-color: #F9ECD9;
+    padding: 6vh 8vw;
+}
+.title-container{
+    display: block;
+    flex-wrap: wrap;
+    margin: 0px;
+}
+.title-container h1{
+    font-size: 7vw;
+    font-weight: 700;
+    color: #FC6F42;
+    margin: 0px;
+    text-align:left;
+}
+.contenido hr{
+    border-top: 2px solid #b79087;
+    border-bottom: 2px solid #b79087;
+    background-color: #b79087;
+    margin-bottom: 2vw;
+}
+.form-container{
+    margin: 0;
+}
+.form-container form .details-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0px;
+}
+form .details-box .input-box,
+form .details-box .select-box {
+    width: calc(100% / 2 - 3%);
+    margin-top: 1%;
+}
+form .details-box .text-box{
+    width: 100%;
+    margin-top: 1%;
+}
+.details-box .input-box .details,
+.details-box .select-box .details,
+.details-box .upload-box .details,
+.details-box .text-box .details{
+    font-weight: 700;
+    font-size: 1em;
+    color: #3D2F2C;
+    margin-bottom: 2%;
+    display:block;
+}
+.details-box .input-box input:not(.uploader),
+.details-box .select-box select{
+    color: #777;
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 4vh;
+    border: 3px solid #3D2F2C;
+    padding-left: 2%;
+    padding-right: 2%;
+    transition: all 0.3s ease;
+}
+.details-box .text-box textarea{
+    color: #777;
+    height: 200px;
+    width: 100%;
+    outline: none;
+    border-radius: 4vh;
+    border: 3px solid #3D2F2C;
+    padding-left: 2%;
+    padding-right: 2%;
+    transition: all 0.3s ease;
+}
+.details-box .input-box input:focus,
+.details-box .select-box select:focus,
+.details-box .text-box textarea:focus{
+    border-color: #FC6F42;
+    color: black;
+}
+.details-box .input-box input:valid,
+.details-box .select-box select:valid,
+.details-box .text-box textarea:valid{
+    border-color: #02AD9D;
+    color: black;
+}
+
+form .details-box .upload-box {
+    width: calc(100% / 2 - 3%);
+    margin-top: 1%;
+    display: inline;
+    background-color: #02AD9D;
+}
+.details-box .upload-box div {
+    display: inline;
+    position: absolute;
+    z-index: 1;
+}
+
+.details-box .upload-box .uploader{
+    height: 45px;
+    width: 50%;
+    border: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    transform: translate(0px, 0px);
+}
+.details-box .upload-box div label{
+    content: "Escoge una foto para subir";
+    display: block;
+    height: 45px;
+    width: 50%;
+    text-align: center;
+    border: none;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 4vh;
+    color: #F9ECD9;
+    background-color: #3D2F2C;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+
+form .button{
+    height: 45px;
+    margin-top: 4vw;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+form .button input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 4vh;
+    color: #F9ECD9;
+    background-color: #3D2F2C;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+form .button input:hover{
+    height: 100%;
+    width: 100%;
+    font-size: 1.08em;
+    color: #F9ECD9;
+    background-color: #FC6F42;
+    outline: 2px solid #FC6F42;
+    box-shadow: inset 0px 0px 0 15px #FC6F42;
+    transition: all 0.3s ease;
+}
+
+
+
+
+/*Responsive Styles*/
+@media screen and (max-width : 900px){
+    nav{
+        display:inline;
+    }
+    /*Make dropdown links appear inline*/
+    nav ul {
+        display: none;
+        clear:both;
+        border-top: 3px solid #b79087;
+    }
+    /*Create vertical spacing*/
+    ul li{
+        float: none;
+    }
+    /*Make all menu links full width*/
+    ul li {
+        width: 100%;
+    }
+    ul li a{
+        width: 100%;
+        font-size: 1em;
+    }
+    ul li a:not(.active), .dropbtn:not(.active){
+        border-bottom: 3px solid #b79087;
+    }
+    
+    .dropdown-content {
+        position:relative;
+        background-color: #e9cea6;
+        min-width: 160px;
+        width: 100%;
+        box-shadow: none;
+    }
+    
+    .dropdown-content a {
+        font-size: 13px;
+        display: block;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    /*Display 'show menu' link*/
+    nav .show-menu {
+        display:block;
+    }
+
+    form .details-box .input-box,
+    form .details-box .select-box{
+        width: 100%;
+        margin-top: 1%;
+    }
+}

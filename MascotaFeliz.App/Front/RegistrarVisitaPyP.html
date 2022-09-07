@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/MascotaFeliz.App/Imagenes/favicon.ico">
+    <title>Nueva Visita PyP</title>
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" id="show-menu" role="button">
+        <label for="show-menu" class="show-menu"><i class="arrow-down-1"></i></label>
+        
+        <li class="logo">
+            <a class="svg-logo" href="#home"><img src="/MascotaFeliz.App/Imagenes/LogoMascotaFeliz.svg" alt="Paws logo"></a>
+            <a class="text-logo" href="#home">Paws</a>
+        </li>
+
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn, active">Mascotas<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarMascota.html">Crear</a>
+                    <a href="ConsultaMascotas.html">Consultar Datos</a>
+                    <a href="ActualizarMascota.html">Actualizar Datos</a>
+                    <hr>
+                    <a href="ConsultaHistoria,html">Ver Historia Clínica</a>
+                    <a href="RegistrarVisitaPyP.html" class="active">Crear Visita PyP</a>
+                    <a href="ActualizarVisitaPyP.html">Actualizar Visita PyP</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Propietarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarDueno.html">Crear</a>
+                    <a href="ConsultaDuenos.html">Consultar Datos</a>
+                    <a href="ActualizarDueno.html">Actualizar Datos</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Veterinarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarVeterinario.html">Crear</a>
+                    <a href="ConsultaVeterinarios.html">Consultar Datos</a>
+                    <a href="ActualizarVeterinario.html">Actualizar Datos</a>
+                </div>
+            </li>
+
+            <li><a href="Consulta General.html">Consulta Base de Datos</a></li>
+
+            <li style="float:right"><a href="Contactenos.html">Contáctenos</a></li>
+        </ul>
+    </nav>
+
+    <div class="contenido">
+        <div class="title-container">
+            <h1>Nueva Visita PyP</h1>
+        </div>  
+
+        <div class="form-container">
+            <form action="#">
+                <div class="details-box">
+
+                    <div class="input-box">
+                        <span class="details">Fecha de la visita*</span>
+                        <input type="date" name="FechaVisita" placeholder="Ingrese el color de su mascota" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Tempratura*</span>
+                        <input type="number" name="Temperatura" placeholder="Ingrese la temperatura registrada" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Peso*</span>
+                        <input type="number" name="Peso" placeholder="Ingrese el peso registrado" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Estado de ánimo*</span>
+                        <input type="text" name="EstadoAnimo" placeholder="Ingrese el estado de ánimo registrado" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Frecuencia Cardíaca*</span>
+                        <input type="number" name="FrecuenciaCardiaca" placeholder="Ingrese la frecuencia cardíaca registrada" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Frecuencia Respiratoria*</span>
+                        <input type="number" name="FrecuenciaRespiratoria" placeholder="Ingrese la frecuencia respiratoria registrada" required>
+                    </div>
+                </div>
+
+                <br>
+                <div class="details-box">
+
+                    <div class="select-box">
+                        <span class="details">Veterinario*</span>
+                        <select name="Veterinario" id="Veterinario" required>
+                            <option disabled selected hidden value="">Seleccione el veterinario/a asignado/a</option>
+                            <option value="Renzo Garavito">Renzo Garavito</option>
+                            <option value="Javier Castiblanco">Javier Castiblanco</option>
+                            <option value="John Campaz">John Campaz</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br>
+                <div class="details-box">
+                    <div class="text-box">
+                        <span class="details">Recomendaciones</span>
+                        <textarea id="Recomendaciones" name="Recomendaciones" placeholder="Ingrese las recomendaciones médica emitidas" ></textarea>
+                    </div>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Registrar">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nueva Mascota</title>
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" id="show-menu" role="button">
+        <label for="show-menu" class="show-menu"><i class="arrow-down-1"></i></label>
+        
+        <li class="logo">
+            <a class="svg-logo" href="#home"><img src="/MascotaFeliz.App/Imagenes/LogoMascotaFeliz.svg" alt="Paws logo"></a>
+            <a class="text-logo" href="#home">Paws</a>
+        </li>
+
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn, active">Mascotas<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarMascota.html" class="active">Crear</a>
+                    <a href="ConsultaMascotas.html">Consultar Datos</a>
+                    <a href="ActualizarMascota.html">Actualizar Datos</a>
+                    <hr>
+                    <a href="ConsultaHistoria,html">Ver Historia Clínica</a>
+                    <a href="RegistrarVisitaPyP.html">Crear Visita PyP</a>
+                    <a href="ActualizarVisitaPyP.html">Actualizar Visita PyP</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Propietarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarDueno.html">Crear</a>
+                    <a href="ConsultaDuenos.html">Consultar Datos</a>
+                    <a href="ActualizarDueno.html">Actualizar Datos</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Veterinarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarVeterinario.html">Crear</a>
+                    <a href="ConsultaVeterinarios.html">Consultar Datos</a>
+                    <a href="ActualizarVeterinario.html">Actualizar Datos</a>
+                </div>
+            </li>
+
+            <li><a href="Consulta General.html">Consulta Base de Datos</a></li>
+
+            <li style="float:right"><a href="Contactenos.html">Contáctenos</a></li>
+        </ul>
+    </nav>
+
+    <div class="contenido">
+        <div class="title-container">
+            <h1>Nueva Mascota</h1>
+        </div>  
+        <hr>
+        <div class="form-container">
+            <form action="#">
+                <div class="details-box">
+
+                    <div class="input-box">
+                        <span class="details">Nombre*</span>
+                        <input type="text" name="Nombre" placeholder="Ingrese el nombre de su mascota" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Color*</span>
+                        <input type="text" name="Color" placeholder="Ingrese el color de su mascota" required>
+                    </div>
+
+                    <div class="select-box">
+                        <span class="details">Especie*</span>
+                        <select name="Especie" id="Especie" required>
+                            <option disabled selected hidden value="">Seleccione la raza de su mascota</option>
+                            <option value="Canino">Canino</option>
+                            <option value="Felino">Felino</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Raza*</span>
+                        <input type="text" name="Raza" placeholder="Ingrese la raza de su mascota" required>
+                    </div>
+                </div>
+
+                <br>
+                <div class="details-box">
+                    <div class="select-box">
+                        <span class="details">Dueño*</span>
+                        <select name="Dueno" id="Dueno" required>
+                            <option disabled selected hidden value="">Seleccione el dueño/a a asignar</option>
+                            <option value="Renzo Garavito">Renzo Garavito</option>
+                            <option value="Javier Castiblanco">Javier Castiblanco</option>
+                            <option value="John Campaz">John Campaz</option>
+                        </select>
+                    </div>
+
+                    <div class="select-box">
+                        <span class="details">Veterinario*</span>
+                        <select name="Veterinario" id="Veterinario" required>
+                            <option disabled selected hidden value="">Seleccione el veterinario/a a asignar</option>
+                            <option value="Renzo Garavito">Renzo Garavito</option>
+                            <option value="Javier Castiblanco">Javier Castiblanco</option>
+                            <option value="John Campaz">John Campaz</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br>
+                <div class="details-box">
+                    <div class="input-box">
+                        <span class="details">Historia Clínica*</span>
+                        <input type="number" name="Id_Historia" placeholder="Ingrese el número de la Historia Clínica" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Fecha*</span>
+                        <input type="date" name="FechaInicial" placeholder="Ingrese la fecha de creación de la Historia Clínica" required>
+                    </div>
+                </div>
+
+                <br>
+                <div class="details-box">
+                    <div class="upload-box">
+                        <span class="details">Sube una foto:</span>
+                        <div>
+                            <label for="photo">Escoge una foto para subir</label>
+                        </div>
+                        <input class="uploader" type="file" id="photo" name="Photo" accept="image/*">
+                    </div>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Registrar">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
