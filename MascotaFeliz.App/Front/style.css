@@ -210,7 +210,7 @@ li.dropdown {
 .title-container h1{
     font-size: 7vw;
     font-weight: 700;
-    color: #FC6F42;
+    color: #3D2F2C;
     margin: 0px;
     text-align:left;
 }
@@ -218,6 +218,7 @@ li.dropdown {
     border-top: 2px solid #b79087;
     border-bottom: 2px solid #b79087;
     background-color: #b79087;
+    margin-top: 2vw;
     margin-bottom: 2vw;
 }
 .form-container{
@@ -230,7 +231,8 @@ li.dropdown {
     margin: 0px;
 }
 form .details-box .input-box,
-form .details-box .select-box {
+form .details-box .select-box,
+form .details-box .upload-box {
     width: calc(100% / 2 - 3%);
     margin-top: 1%;
 }
@@ -254,6 +256,7 @@ form .details-box .text-box{
     height: 45px;
     width: 100%;
     outline: none;
+    font-size: 13px;
     border-radius: 4vh;
     border: 3px solid #3D2F2C;
     padding-left: 2%;
@@ -284,77 +287,87 @@ form .details-box .text-box{
     color: black;
 }
 
-form .details-box .upload-box {
-    width: calc(100% / 2 - 3%);
-    margin-top: 1%;
-    display: inline;
-    background-color: #02AD9D;
-}
-.details-box .upload-box div {
-    display: inline;
-    position: absolute;
-    z-index: 1;
-}
-
 .details-box .upload-box .uploader{
     height: 45px;
-    width: 50%;
-    border: none;
-    font-size: 1em;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    transform: translate(0px, 0px);
-}
-.details-box .upload-box div label{
-    content: "Escoge una foto para subir";
-    display: block;
-    height: 45px;
-    width: 50%;
-    text-align: center;
-    border: none;
-    font-size: 1em;
-    font-weight: 500;
-    border-radius: 4vh;
-    color: #F9ECD9;
-    background-color: #3D2F2C;
-    outline: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-
-
-form .button{
-    height: 45px;
-    margin-top: 4vw;
-    display: flex;
-    justify-content: center;
-    vertical-align: middle;
-}
-form .button input{
-    height: 100%;
     width: 100%;
     border: none;
-    font-size: 1em;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 400;
+    background-color: #FFFFFF;
+    color: #3D2F2C;
     border-radius: 4vh;
-    color: #F9ECD9;
-    background-color: #3D2F2C;
-    outline: none;
+    padding: 0;
     transition: all 0.3s ease;
     cursor: pointer;
 }
-form .button input:hover{
-    height: 100%;
-    width: 100%;
-    font-size: 1.08em;
-    color: #F9ECD9;
+.details-box .upload-box .uploader:hover::file-selector-button{
     background-color: #FC6F42;
-    outline: 2px solid #FC6F42;
     box-shadow: inset 0px 0px 0 15px #FC6F42;
     transition: all 0.3s ease;
 }
+.uploader::file-selector-button{
+    height: 45px;
+    width: 70%;
+    text-align: center;
+    border:none;
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 4vh;
+    color: #F9ECD9;
+    background-color: #3D2F2C;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.uploader::file-selector-button:hover{
+    background-color: #FC6F42;
+    box-shadow: inset 0px 0px 0 15px #FC6F42;
+    transition: all 0.3s ease;
+}
+
+
+
+
+form .button-box{
+    height: 45px;
+    width: 100%;
+    display: inline-block;
+    justify-content: center;
+    vertical-align: middle;
+}
+form .button-box button{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 4vh;
+    color: #F9ECD9;
+    background-color: #3D2F2C;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+form .button-box button .arrow-right{
+    border: solid #F9ECD9;
+    border-width: 0px 3px 3px 0px;
+    display: inline-block;
+    padding: 3px;
+    transform: translate(3px, 0) rotate(-45deg);
+    transition: all 0.3s ease;
+}
+form .button-box button:hover{
+    color: #F9ECD9;
+    background-color: #FC6F42;
+    box-shadow: inset 0px 0px 0 15px #FC6F42;
+    transition: all 0.3s ease;
+}
+form .button-box button:hover > .arrow-right{
+    transform: translate(7px, 0) rotate(-45deg);
+    transition: all 0.3s ease;
+}
+
 
 
 
@@ -408,7 +421,8 @@ form .button input:hover{
     }
 
     form .details-box .input-box,
-    form .details-box .select-box{
+    form .details-box .select-box,
+    form .details-box .upload-box{
         width: 100%;
         margin-top: 1%;
     }

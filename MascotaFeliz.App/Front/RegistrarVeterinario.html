@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/MascotaFeliz.App/Imagenes/favicon.ico">
     <title>Nuevo Veterinario</title>
 </head>
 <body>
@@ -59,7 +60,7 @@
         <div class="title-container">
             <h1>Nuevo Veterinario</h1>
         </div> 
-
+        <hr>
         <div class="form-container">
             <form action="#">
                 <div class="details-box">
@@ -91,8 +92,17 @@
 
                 </div>
 
-                <div class="button">
-                    <input type="submit" value="Registrar">
+                <br>
+                <div class="details-box">
+                    <div class="upload-box">
+                        <span class="details">Sube una foto:</span>
+                        <input class="uploader" type="file" id="photo" name="Photo" accept="image/*">
+                    </div>
+                </div>
+
+                <hr>
+                <div class="button-box">
+                    <button type="submit" value="Registrar">Registrar<i class="arrow-right"></i></button>
                 </div>
             </form>
         </div>
