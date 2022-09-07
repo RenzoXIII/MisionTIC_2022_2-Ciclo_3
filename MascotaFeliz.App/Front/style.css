@@ -213,13 +213,19 @@ li.dropdown {
     color: #3D2F2C;
     margin: 0px;
     text-align:left;
+    line-height: auto;
 }
 .contenido hr{
     border-top: 2px solid #b79087;
     border-bottom: 2px solid #b79087;
     background-color: #b79087;
-    margin-top: 2vw;
-    margin-bottom: 2vw;
+}
+.contenido p{
+    font-size: 1em;
+    font-weight: 400;
+    color: #3D2F2C;
+    margin: 0 0 1vw 0;
+    text-align:left;
 }
 .form-container{
     margin: 0;
@@ -228,17 +234,17 @@ li.dropdown {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0px;
+    margin: 0 0 2vw 0;
 }
 form .details-box .input-box,
 form .details-box .select-box,
 form .details-box .upload-box {
     width: calc(100% / 2 - 3%);
-    margin-top: 1%;
+    margin-top: 1vw;
 }
 form .details-box .text-box{
     width: 100%;
-    margin-top: 1%;
+    margin-top: 1vw;
 }
 .details-box .input-box .details,
 .details-box .select-box .details,
@@ -335,6 +341,7 @@ form .button-box{
     display: inline-block;
     justify-content: center;
     vertical-align: middle;
+    margin-top: 2vw;
 }
 form .button-box button{
     height: 100%;
@@ -422,8 +429,9 @@ form .button-box button:hover > .arrow-right{
 
     form .details-box .input-box,
     form .details-box .select-box,
-    form .details-box .upload-box{
+    form .details-box .upload-box,
+    form .details-box .text-box{
         width: 100%;
-        margin-top: 1%;
+        margin-top: 2vw;
     }
 }
