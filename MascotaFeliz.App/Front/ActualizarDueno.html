@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/MascotaFeliz.App/Imagenes/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/MascotaFeliz.App/Imagenes/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/MascotaFeliz.App/Imagenes/favicon-16x16.png">  
-    <title>Nuevo Veterinario</title>
+    <title>Actualizar Dueño</title>
 </head>
 <body>
     <nav>
@@ -35,18 +35,18 @@
             </li>
 
             <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Propietarios<i class="arrow-down"></i></a>
+                <a href="javascript:void(0)" class="dropbtn, active">Propietarios<i class="arrow-down"></i></a>
                 <div class="dropdown-content">
                     <a href="RegistrarDueno.html">Crear</a>
                     <a href="ConsultaDuenos.html">Consultar Datos</a>
-                    <a href="ActualizarDueno.html">Actualizar Datos</a>
+                    <a href="ActualizarDueno.html" class="active">Actualizar Datos</a>
                 </div>
             </li>
 
             <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn, active">Veterinarios<i class="arrow-down"></i></a>
+                <a href="javascript:void(0)" class="dropbtn">Veterinarios<i class="arrow-down"></i></a>
                 <div class="dropdown-content">
-                    <a href="RegistrarVeterinario.html" class="active">Crear</a>
+                    <a href="RegistrarVeterinario.html">Crear</a>
                     <a href="ConsultaVeterinarios.html">Consultar Datos</a>
                     <a href="ActualizarVeterinario.html">Actualizar Datos</a>
                 </div>
@@ -59,13 +59,28 @@
     </nav>
 
     <div class="contenido">
+
         <div class="title-container">
-            <h1>Nuevo Veterinario</h1>
+            <h1>Actualizar Dueño</h1>
         </div> 
         <p>Los campos marcados con <b>*</b> son obligatorios.</p>
         <hr>
         <div class="form-container">
             <form action="#">
+                <div class="details-box">
+
+                    <div class="id-box-1">
+                        <span class="details">Selecione un dueño para actualizar:*</span>
+                        <input list="IdsDuenos" name="IdDueno" id="IdDueno" placeholder="Seleccione un dueño" pattern="[0-9]{1,}[ ][-][ ][A-z0-9À-ž\s]{0,}" required>
+                        <datalist id="IdsDuenos">
+                            <option value="1 - Renzo Garavito"></option>
+                            <option value="2 - Javier Castiblanco"></option>
+                            <option value="3 - John Campaz"></option>
+                        </datalist>
+                    </div>
+                </div>
+                <hr>
+
                 <div class="details-box">
 
                     <div class="input-box">
@@ -89,8 +104,8 @@
                     </div>
 
                     <div class="input-box">
-                        <span class="details">Tarjeta Profesional*</span>
-                        <input type="text" name="TarjetaProfesional" placeholder="Ingrese su número de matrícula profesional" required>
+                        <span class="details">E-mail*</span>
+                        <input type="email" name="Correo" placeholder="Ingrese su dirección e-mail" required>
                     </div>
 
                 </div>

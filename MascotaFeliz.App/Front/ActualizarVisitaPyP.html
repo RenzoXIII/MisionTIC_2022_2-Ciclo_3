@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/MascotaFeliz.App/Imagenes/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/MascotaFeliz.App/Imagenes/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/MascotaFeliz.App/Imagenes/favicon-16x16.png">  
-    <title>Nueva Visita PyP</title>
+    <title>Actualizar Visita PyP</title>
 </head>
 
 <body>
@@ -31,8 +31,8 @@
                     <a href="ActualizarMascota.html">Actualizar Datos</a>
                     <hr>
                     <a href="ConsultaHistoria.html">Ver Historia Clínica</a>
-                    <a href="RegistrarVisitaPyP.html" class="active">Crear Visita PyP</a>
-                    <a href="ActualizarVisitaPyP.html">Actualizar Visita PyP</a>
+                    <a href="RegistrarVisitaPyP.html">Crear Visita PyP</a>
+                    <a href="ActualizarVisitaPyP.html" class="active">Actualizar Visita PyP</a>
                 </div>
             </li>
 
@@ -62,7 +62,7 @@
 
     <div class="contenido">
         <div class="title-container">
-            <h1>Nueva Visita PyP</h1>
+            <h1>Actualizar Visita PyP</h1>
         </div>  
         <p>Los campos marcados con <b>*</b> son obligatorios.</p>
         <hr>
@@ -86,6 +86,16 @@
                             <option value="1 - Tommy"></option>
                             <option value="2 - Pepe"></option>
                             <option value="3 - Lola"></option>
+                        </datalist>
+                    </div>
+
+                    <div class="id-box-1">
+                        <span class="details">Selecione una visita PyP para actualizar:*</span>
+                        <input list="IdsVisitas" name="IdVisita" id="IdVisita" placeholder="Seleccione una visita PyP" pattern="[0-9]{1,}[ ][-][ ][A-z0-9À-ž\s/]{0,}" required>
+                        <datalist id="IdsVisitas">
+                            <option value="1 - 1/7/2022"></option>
+                            <option value="2 - 5/7/2022"></option>
+                            <option value="3 - 9/7/2022"></option>
                         </datalist>
                     </div>
                 </div>
@@ -129,7 +139,7 @@
 
                     <div class="select-box">
                         <span class="details">Veterinario*</span>
-                        <input list="Veterinarios" name="Veterinario" id="Veterinario" placeholder="Seleccione el veterinario a asignar" pattern="[0-9]{1,}[ ][-][ ][A-z0-9À-ž\s]{0,}" required>
+                        <input list="Veterinarios" name="Veterinario" id="Veterinario" placeholder="Seleccione el veterinario a asignar" required>
                         <datalist id="Veterinarios">
                             <option value="1 - Renzo Garavito"></option>
                             <option value="2 - Javier Castiblanco"></option>

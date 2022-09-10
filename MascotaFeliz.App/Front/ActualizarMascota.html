@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/MascotaFeliz.App/Imagenes/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/MascotaFeliz.App/Imagenes/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/MascotaFeliz.App/Imagenes/favicon-16x16.png">  
-    <title>Nueva Visita PyP</title>
+    <title>Actualizar Mascota</title>
 </head>
 
 <body>
@@ -28,10 +28,10 @@
                 <div class="dropdown-content">
                     <a href="RegistrarMascota.html">Crear</a>
                     <a href="ConsultaMascotas.html">Consultar Datos</a>
-                    <a href="ActualizarMascota.html">Actualizar Datos</a>
+                    <a href="ActualizarMascota.html" class="active">Actualizar Datos</a>
                     <hr>
                     <a href="ConsultaHistoria.html">Ver Historia Clínica</a>
-                    <a href="RegistrarVisitaPyP.html" class="active">Crear Visita PyP</a>
+                    <a href="RegistrarVisitaPyP.html">Crear Visita PyP</a>
                     <a href="ActualizarVisitaPyP.html">Actualizar Visita PyP</a>
                 </div>
             </li>
@@ -62,7 +62,7 @@
 
     <div class="contenido">
         <div class="title-container">
-            <h1>Nueva Visita PyP</h1>
+            <h1>Actualizar Mascota</h1>
         </div>  
         <p>Los campos marcados con <b>*</b> son obligatorios.</p>
         <hr>
@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="id-box-2">
-                        <span class="details">Selecione una mascota:*</span>
+                        <span class="details">Selecione una mascota para actualizar:*</span>
                         <input list="IdsMascotas" name="IdMascota" id="IdMascota" placeholder="Seleccione una mascota" pattern="[0-9]{1,}[ ][-][ ][A-z0-9À-ž\s]{0,}" required>
                         <datalist id="IdsMascotas">
                             <option value="1 - Tommy"></option>
@@ -91,41 +91,44 @@
                 </div>
                 
                 <hr>
-
                 <div class="details-box">
 
                     <div class="input-box">
-                        <span class="details">Fecha de la visita*</span>
-                        <input type="date" name="FechaVisita" placeholder="Ingrese el color de su mascota" required>
+                        <span class="details">Nombre*</span>
+                        <input type="text" name="Nombre" placeholder="Ingrese el nombre de su mascota" required>
                     </div>
 
                     <div class="input-box">
-                        <span class="details">Tempratura*</span>
-                        <input type="number" name="Temperatura" placeholder="Ingrese la temperatura registrada" required>
+                        <span class="details">Color*</span>
+                        <input type="text" name="Color" placeholder="Ingrese el color de su mascota" required>
+                    </div>
+
+                    <div class="select-box">
+                        <span class="details">Especie*</span>
+                        <input list="Especies" name="Especie" id="Especie" placeholder="Seleccione la raza de su mascota" pattern="^(Perro|Gato|Ave|)$" required>
+                        <datalist id="Especies">
+                            <option value="Perro"></option>
+                            <option value="Gato"></option>
+                            <option value="Ave"></option>
+                        </datalist>
                     </div>
 
                     <div class="input-box">
-                        <span class="details">Peso*</span>
-                        <input type="number" name="Peso" placeholder="Ingrese el peso registrado" required>
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Estado de ánimo*</span>
-                        <input type="text" name="EstadoAnimo" placeholder="Ingrese el estado de ánimo registrado" required>
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Frecuencia Cardíaca*</span>
-                        <input type="number" name="FrecuenciaCardiaca" placeholder="Ingrese la frecuencia cardíaca registrada" required>
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Frecuencia Respiratoria*</span>
-                        <input type="number" name="FrecuenciaRespiratoria" placeholder="Ingrese la frecuencia respiratoria registrada" required>
+                        <span class="details">Raza*</span>
+                        <input type="text" name="Raza" placeholder="Ingrese la raza de su mascota" required>
                     </div>
                 </div>
 
                 <div class="details-box">
+                    <div class="select-box">
+                        <span class="details">Dueño*</span>
+                        <input list="Duenos" name="Dueno" id="Dueno" placeholder="Seleccione el dueño a asignar" pattern="[0-9]{1,}[ ][-][ ][A-z0-9À-ž\s]{0,}" required>
+                        <datalist id="Duenos">
+                            <option value="1 - Renzo Garavito"></option>
+                            <option value="2 - Javier Castiblanco"></option>
+                            <option value="3 - John Campaz"></option>
+                        </datalist>
+                    </div>
 
                     <div class="select-box">
                         <span class="details">Veterinario*</span>
@@ -136,19 +139,30 @@
                             <option value="3 - John Campaz"></option>
                         </datalist>
                     </div>
-
                 </div>
 
                 <div class="details-box">
-                    <div class="text-box">
-                        <span class="details">Recomendaciones (Opcional)</span>
-                        <textarea id="Recomendaciones" name="Recomendaciones" placeholder="Ingrese las recomendaciones médica emitidas" ></textarea>
+                    <div class="input-box">
+                        <span class="details">Historia Clínica*</span>
+                        <input type="number" name="Id_Historia" placeholder="Ingrese el número de la Historia Clínica" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Fecha*</span>
+                        <input type="date" name="FechaInicial" placeholder="Ingrese la fecha de creación de la Historia Clínica" required>
+                    </div>
+                </div>
+
+                <div class="details-box">
+                    <div class="upload-box">
+                        <span class="details">Sube una foto (Opcional)</span>
+                        <input class="uploader" type="file" id="photo" name="Photo" accept="image/*">
                     </div>
                 </div>
 
                 <hr>
                 <div class="button-box">
-                    <button type="submit" value="Registrar">Registrar<i class="arrow-right"></i></button>
+                    <button type="submit" value="Actualizr">Actualizar<i class="arrow-right"></i></button>
                 </div>
             </form>
         </div>

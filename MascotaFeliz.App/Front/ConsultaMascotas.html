@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/MascotaFeliz.App/Imagenes/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/MascotaFeliz.App/Imagenes/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/MascotaFeliz.App/Imagenes/favicon-16x16.png">  
+    <title>Consultar Mascotas</title>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="show-menu" role="button">
+        <label for="show-menu" class="show-menu"><i class="arrow-down-1"></i></label>
+        
+        <li class="logo">
+            <a class="svg-logo" href="#home"><img src="/MascotaFeliz.App/Imagenes/LogoMascotaFeliz.svg" alt="Paws logo"></a>
+            <a class="text-logo" href="#home">Paws</a>
+        </li>
+
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Mascotas<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarMascota.html">Crear</a>
+                    <a href="ConsultaMascotas.html">Consultar Datos</a>
+                    <a href="ActualizarMascota.html">Actualizar Datos</a>
+                    <hr>
+                    <a href="ConsultaHistoria.html">Ver Historia Clínica</a>
+                    <a href="RegistrarVisitaPyP.html">Crear Visita PyP</a>
+                    <a href="ActualizarVisitaPyP.html">Actualizar Visita PyP</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Propietarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarDueno.html">Crear</a>
+                    <a href="ConsultaDuenos.html">Consultar Datos</a>
+                    <a href="ActualizarDueno.html">Actualizar Datos</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn, active">Veterinarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarVeterinario.html">Crear</a>
+                    <a href="ConsultaVeterinarios.html" class="active">Consultar Datos</a>
+                    <a href="ActualizarVeterinario.html">Actualizar Datos</a>
+                </div>
+            </li>
+
+            <li><a href="ConsultaGeneral.html">Consulta Base de Datos</a></li>
+
+            <li style="float:right"><a href="Contactenos.html">Contáctenos</a></li>
+        </ul>
+    </nav>
+
+    <div class="contenido">
+
+        <div class="title-container">
+            <h1>Consultar Mascotas</h1>
+        </div> 
+        <hr>
+        <div class="form-container">
+            <form action="#">
+                <div class="details-box">
+
+                    <div class="id-box-1">
+                        <span class="details">Buscar Mascota:</span>
+                        <input type="text" name="search-id" placeholder="Ingrese el ID o Nombre de la mascota que desea consultar" required>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="form-container">
+            <div class="results-list">
+
+                <div class="data-box">
+                    <input type="checkbox" id="show-profile">
+                    <label for="show-profile" class="profile-button">Tommy - 1<i class="arrow-down-1"></i></label>
+                    <div class="profile-content">
+
+                        <div class="outer-photo-box">
+                            <div class="inner-photo-box">
+                                <img class="profile-photo" src="/MascotaFeliz.App/Imagenes/Placeholder-photo-dog.jpg" alt="Foto de perfil de la mascota">
+                            </div>
+                        </div>
+
+                        <div class="profile-box">
+       
+                            <div class="info-box">
+                                <div class="trait-box">
+                                    <span class="info-title">Nombre</span>
+                                    <span class="info-text">Tommy</span>
+                                </div>  
+
+                                <div class="trait-box">
+                                    <span class="info-title">ID</span>
+                                    <span class="info-text">1</span>
+                                </div> 
+
+                                <div class="trait-box">
+                                    <span class="info-title">Color</span>
+                                    <span class="info-text">Sepia</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Especie</span>
+                                    <span class="info-text">Perro</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Raza</span>
+                                    <span class="info-text">Cocker Spaniel</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Dueño</span>
+                                    <span class="info-text">Renzo Alejandro Gravito Camacho</span>
+                                </div>
+                                
+                                <div class="trait-box">
+                                    <span class="info-title">Veterinario</span>
+                                    <span class="info-text">Renzo Alejandro Garavito Camacho</span>
+                                </div>
+
+                            </div>
+
+                            <div class="action-box">
+                                <a href="ActualizarDueno.html">Actualizar</a>
+                                <a href="ConsultaHistoria.html">Ver Historia Clínica</a>
+                                <a href="ConsultaDuenos.html">Ver Dueño</a>
+                                <a href="ConsultaVeterinarios.html">Ver Veterinario</a>
+
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="empty-box">
+                    <h2>Lo sentimos.</h2>
+                    <h3>No se encontró ningún resultado que coincida con esta búsqueda.</h3>
+                </div>
+
+            </div>
+            <hr>
+        </div>
+    </div>
+</body>
+</html>
