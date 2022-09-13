@@ -41,7 +41,7 @@ namespace MascotaFeliz.App.Persistencia
 
        public IEnumerable<Dueno> GetAllDuenos()
         {
-            return GetAllDuenos_();
+            return _appContext.Duenos;
         }
 
         public IEnumerable<Dueno> GetDuenosPorFiltro(string filtro)
@@ -51,15 +51,11 @@ namespace MascotaFeliz.App.Persistencia
             {
                 if (!String.IsNullOrEmpty(filtro)) // Si el filtro tiene algun valor
                 {
-                    duenos = duenos.Where(s => s.Nombres.Contains(filtro));
+                    duenos = duenos.Where(s => (s.Nombres+" "+s.Apellidos).IndexOf(filtro, StringComparison.CurrentCultureIgnoreCase) >= 0 ||
+                                               s.Cedula.Contains(filtro));
                 }
             }
             return duenos;
-        }
-
-        public IEnumerable<Dueno> GetAllDuenos_()
-        {
-            return _appContext.Duenos;
         }
 
         public Dueno GetDueno(int idDueno)

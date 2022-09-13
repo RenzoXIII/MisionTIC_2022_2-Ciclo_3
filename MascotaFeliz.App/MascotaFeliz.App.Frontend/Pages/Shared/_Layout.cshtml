@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Pawmi</title>
+    <!--link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /-->
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Imagenes/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Imagenes/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Imagenes/favicon-16x16.png">  
+</head>
+<body>
+    <header>
+        <nav>
+        <input type="checkbox" id="show-menu" role="button">
+        <label for="show-menu" class="show-menu"><i class="arrow-down-1"></i></label>
+        
+        <li class="logo">
+            <a class="svg-logo" asp-page="/Index"><img src="~/Imagenes/LogoMascotaFeliz.svg" alt="Paws logo"></a>
+            <a class="text-logo" asp-page="/Index">Pawmi</a>
+        </li>
+
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Mascotas<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a asp-page="/Mascotas/RegistrarMascota">Crear</a>
+                    <a asp-page="/Mascotas/ConsultaMascotas">Consultar Datos</a>
+                    <a asp-page="/Mascotas/ActualizarMascota">Actualizar Datos</a>
+                    <hr>
+                    <a asp-page="/Historia/ConsultaHistoria">Ver Historia Clínica</a>
+                    <a asp-page="/Historia/RegistrarVisitaPyP">Crear Visita PyP</a>
+                    <a asp-page="/Historia/ActualizarVisitaPyP">Actualizar Visita PyP</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn, active">Propietarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a asp-page="/Duenos/RegistrarDueno">Crear</a>
+                    <a asp-page="/Duenos/ConsultaDuenos" class="active">Consultar Datos</a>
+                    <a asp-page="/Duenos/ActualizarDueno">Actualizar Datos</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Veterinarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a asp-page="/Veterinarios/RegistrarVeterinario">Crear</a>
+                    <a asp-page="/Veterinarios/ConsultaVeterinarios">Consultar Datos</a>
+                    <a asp-page="/Veterinarios/ActualizarVeterinario">Actualizar Datos</a>
+                </div>
+            </li>
+
+            <li><a asp-page="/Misc/ConsultaGeneral">Consulta Base de Datos</a></li>
+
+            <li style="float:right"><a asp-page="/Misc/Contactenos">Contáctenos</a></li>
+        </ul>
+    </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - MascotaFeliz.App.Frontend - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

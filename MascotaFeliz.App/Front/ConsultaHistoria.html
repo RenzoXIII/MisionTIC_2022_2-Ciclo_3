@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/MascotaFeliz.App/Imagenes/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/MascotaFeliz.App/Imagenes/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/MascotaFeliz.App/Imagenes/favicon-16x16.png">  
+    <title>Historia Clínica</title>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="show-menu" role="button">
+        <label for="show-menu" class="show-menu"><i class="arrow-down-1"></i></label>
+        
+        <li class="logo">
+            <a class="svg-logo" href="#home"><img src="/MascotaFeliz.App/Imagenes/LogoMascotaFeliz.svg" alt="Paws logo"></a>
+            <a class="text-logo" href="#home">Paws</a>
+        </li>
+
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn, active">Mascotas<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarMascota.html">Crear</a>
+                    <a href="ConsultaMascotas.html" >Consultar Datos</a>
+                    <a href="ActualizarMascota.html">Actualizar Datos</a>
+                    <hr>
+                    <a href="ConsultaHistoria.html" class="active">Ver Historia Clínica</a>
+                    <a href="RegistrarVisitaPyP.html">Crear Visita PyP</a>
+                    <a href="ActualizarVisitaPyP.html">Actualizar Visita PyP</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Propietarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarDueno.html">Crear</a>
+                    <a href="ConsultaDuenos.html">Consultar Datos</a>
+                    <a href="ActualizarDueno.html">Actualizar Datos</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Veterinarios<i class="arrow-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="RegistrarVeterinario.html">Crear</a>
+                    <a href="ConsultaVeterinarios.html">Consultar Datos</a>
+                    <a href="ActualizarVeterinario.html">Actualizar Datos</a>
+                </div>
+            </li>
+
+            <li><a href="ConsultaGeneral.html">Consulta Base de Datos</a></li>
+
+            <li style="float:right"><a href="Contactenos.html">Contáctenos</a></li>
+        </ul>
+    </nav>
+
+    <div class="contenido">
+
+        <div class="title-container">
+            <h1>Historia Clínica</h1>
+        </div> 
+        <hr>
+        <div class="form-container">
+            <form action="#">
+
+                <div class="details-box">
+                    <div class="id-box-1">
+                        <span class="details">Buscar Mascota:</span>
+                        <input type="text" name="search-id" placeholder="Ingrese el ID o Nombre de la mascota para la que desea consultar la historia clínica" required>
+                    </div>
+                </div>
+                
+                <hr>
+
+                <div class="details-box">
+                    <input type="checkbox" id="show-filter">
+                    <label for="show-filter" class="filter-button">
+                        <p class="button-title">Filtros</p>
+                        <i class="arrow-down-1"></i>
+                    </label>
+
+                    <div class="filter-content">
+                        <div class="filter-box">
+                            <span class="details">Filtrar por Dueño:</span>
+                            <input type="text" name="dueno-id" placeholder="Ingrese el Nombre o Cédula del dueño para filtrar los resultados" required>
+                        </div>
+
+                        <div class="filter-box">
+                            <span class="details">Filtrar por Veterinario:</span>
+                            <input type="text" name="veterinario-id" placeholder="Ingrese el Nombre o Cédula del veterinario para filtrar los resultados" required>
+                        </div>
+                     </div>
+
+                </div>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="form-container">
+            <div class="results-list">
+
+                <div class="data-box">
+                    <input type="checkbox" id="show-profile">
+                    <label for="show-profile" class="profile-button">
+                        <div class="button-div">
+                            <h3 class="button-title">Visita 10/9/2022</h3>
+                            <p class="button-subtitle">ID: 1</p>
+                        </div>
+                        <i class="arrow-down-1"></i>
+                    </label>
+
+                    <div class="profile-content">
+
+                        <div class="profile-box-visita">
+       
+                            <div class="info-box">
+
+                                <h3>Información básica</h3>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Fecha de la visita</span>
+                                    <span class="info-text">10/9/2022</span>
+                                </div>  
+
+                                <div class="trait-box">
+                                    <span class="info-title">ID Visita</span>
+                                    <span class="info-text">1</span>
+                                </div> 
+                            </div>
+
+                                
+
+                            <div class="info-box">
+
+                                <h3>Información personal</h3>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Mascota</span>
+                                    <span class="info-text">Tommy</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">ID Mascota</span>
+                                    <span class="info-text">1</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Dueño</span>
+                                    <span class="info-text">Renzo Alejandro Garavito Camacho</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Cédula Dueño</span>
+                                    <span class="info-text">1018514562</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Veterinario</span>
+                                    <span class="info-text">Renzo Alejandro Garavito Camacho</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <h3>Observaciones</h3>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Temperatura</span>
+                                    <span class="info-text">37 °C</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Peso</span>
+                                    <span class="info-text">20 Kg</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Frecuencia Respiratoria</span>
+                                    <span class="info-text">16</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Frecuencia Cardiaca</span>
+                                    <span class="info-text">100</span>
+                                </div>
+                                
+                                <div class="trait-box">
+                                    <span class="info-title">Estado de ánimo</span>
+                                    <span class="info-text">Relajado</span>
+                                </div>
+
+                                <div class="text-box-2">
+                                    <span class="info-title">Recomendaciones</span>
+                                    <span class="info-paragraph">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</span>
+                                </div>
+                            </div>
+
+                            <div class="action-box">
+                                <a href="ActualizarVisitaPyP.html">Actualizar</a>
+                                <a href="ConsultaMascotas.html">Ver Mascota</a>
+                                <a href="ConsultaDuenos.html">Ver Dueño</a>
+                                <a href="ConsultaVeterinarios.html">Ver Veterinario</a>
+
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="data-box">
+                    <input type="checkbox" id="2">
+                    <label for="2" class="profile-button">
+                        <div class="button-div">
+                            <h3 class="button-title">Visita 12/9/2022</h3>
+                            <p class="button-subtitle">ID: 2</p>
+                        </div>
+                        <i class="arrow-down-1"></i>
+                    </label>
+
+                    <div class="profile-content">
+
+                        <div class="profile-box-visita">
+       
+                            <div class="info-box">
+
+                                <h3>Información básica</h3>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Fecha de la visita</span>
+                                    <span class="info-text">12/9/2022</span>
+                                </div>  
+
+                                <div class="trait-box">
+                                    <span class="info-title">ID Visita</span>
+                                    <span class="info-text">2</span>
+                                </div> 
+                            </div>
+
+                                
+
+                            <div class="info-box">
+
+                                <h3>Información personal</h3>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Mascota</span>
+                                    <span class="info-text">Tommy</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">ID Mascota</span>
+                                    <span class="info-text">1</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Dueño</span>
+                                    <span class="info-text">Renzo Alejandro Garavito Camacho</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Cédula Dueño</span>
+                                    <span class="info-text">1018514562</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Veterinario</span>
+                                    <span class="info-text">Renzo Alejandro Garavito Camacho</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <h3>Observaciones</h3>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Temperatura</span>
+                                    <span class="info-text">37 °C</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Peso</span>
+                                    <span class="info-text">20 Kg</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Frecuencia Respiratoria</span>
+                                    <span class="info-text">16</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Frecuencia Cardiaca</span>
+                                    <span class="info-text">100</span>
+                                </div>
+                                
+                                <div class="trait-box">
+                                    <span class="info-title">Estado de ánimo</span>
+                                    <span class="info-text">Relajado</span>
+                                </div>
+
+                                <div class="text-box-2">
+                                    <span class="info-title">Recomendaciones</span>
+                                    <span class="info-paragraph">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</span>
+                                </div>
+                            </div>
+
+                            <div class="action-box">
+                                <a href="ActualizarVisitaPyP.html">Actualizar</a>
+                                <a href="ConsultaMascotas.html">Ver Mascota</a>
+                                <a href="ConsultaDuenos.html">Ver Dueño</a>
+                                <a href="ConsultaVeterinarios.html">Ver Veterinario</a>
+
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="empty-box">
+                    <h2>Lo sentimos.</h2>
+                    <h3>No se encontró ningún resultado que coincida con esta búsqueda.</h3>
+                </div>
+
+            </div>
+            <hr>
+        </div>
+    </div>
+</body>
+</html>

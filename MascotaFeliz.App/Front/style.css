@@ -201,7 +201,7 @@ li.dropdown {
 
 .contenido{
     background-color: #F9ECD9;
-    padding: 3vh 8vw;
+    padding: 3vh 6vw;
 }
 .title-container{
     display: block;
@@ -209,7 +209,7 @@ li.dropdown {
     margin: 0px;
 }
 .contenido h1{
-    font-size: 5vw;
+    font-size: 3em;
     font-weight: 700;
     color: #3D2F2C;
     margin: 0px;
@@ -244,7 +244,19 @@ form .details-box .id-box-2 {
     width: calc(100% / 2 - 2vw);
     margin-top: 1vw;
 }
+form .details-box .filter-content{
+    display:none;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 3px solid #3D2F2C;
+    border-top: none;
+    border-radius: 0 0 4vh 4vh;
+    align-items: center;
+    overflow: hidden;
+    padding: 1vw 2vw;
+}
 form .details-box .id-box-1,
+form .details-box .filter-box,
 form .details-box .text-box{
     width: 100%;
     margin-top: 1vw;
@@ -254,16 +266,18 @@ form .details-box .text-box{
 .details-box .upload-box .details,
 .details-box .text-box .details,
 .details-box .id-box-1 .details,
+.details-box .filter-box .details,
 .details-box .id-box-2 .details{
     font-weight: 700;
     font-size: 1em;
     color: #3D2F2C;
-    margin-bottom: 1vw;
+    margin-bottom: 0.5vw;
     display:block;
 }
 .details-box .input-box input:not(.uploader),
 .details-box .select-box input,
 .details-box .id-box-1 input,
+.details-box .filter-box input,
 .details-box .id-box-2 input{
     color: #777;
     height: 45px;
@@ -280,6 +294,7 @@ form .details-box .text-box{
     color: #777;
     height: 200px;
     width: 100%;
+    text-align: justify;
     outline: none;
     border-radius: 4vh;
     border: 3px solid #3D2F2C;
@@ -289,6 +304,7 @@ form .details-box .text-box{
 .details-box .input-box input:focus,
 .details-box .select-box input:focus,
 .details-box .id-box-1 input:focus,
+.details-box .filter-box input:focus,
 .details-box .id-box-2 input:focus,
 .details-box .text-box textarea:focus{
     border-color: #FC6F42;
@@ -297,10 +313,74 @@ form .details-box .text-box{
 .details-box .input-box input:valid,
 .details-box .select-box input:valid,
 .details-box .id-box-1 input:valid,
+.details-box .filter-box input:valid,
 .details-box .id-box-2 input:valid,
 .details-box .text-box textarea:valid{
     border-color: #02AD9D;
     color: black;
+}
+
+
+/*Hide checkbox*/
+.details-box input[type=checkbox]{
+    display: none;
+}
+/*Show menu when invisible checkbox is checked*/
+.details-box input[type=checkbox]:checked ~ .filter-content{
+    display:block;
+}
+.details-box .filter-button {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 4vh;
+    background-color: #3D2F2C;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 2vw;
+    margin: 2vw 0 0;
+
+
+    white-space: nowrap;
+    text-align:left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filter-button p{
+    color: #F9ECD9;
+    font-size: 1em;
+    font-weight: 600;
+    width: 100%;
+    margin: 0;
+    text-align:center;
+}
+.filter-button .arrow-down-1{
+    border: solid #F9ECD9;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 2px;
+    margin: 0 25px;
+    transform: translate(0, -2px) rotate(45deg);
+    transition: all 0.3s ease;
+    user-select: none;
+}
+.details-box .filter-button:hover {
+    background-color: #FC6F42;
+    transition: all 0.3s ease;
+}
+.details-box input[type=checkbox]:checked ~ .filter-button {
+    border-radius: 4vh 4vh 0 0;
+    transition: all 0.1s ease;
+}
+.details-box input[type=checkbox]:checked ~ .filter-button .arrow-down-1{
+    border-width: 0 3px 3px 0;
+    transform: translate(0, 2px) rotate(-135deg);
+    transition: all 0.3s ease;
 }
 
 
@@ -437,13 +517,12 @@ form .button-box button:hover > .arrow-right{
 .form-container .results-list{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     margin: 0vw 0 2vw 0;
 }
 .results-list .data-box{
     width: 100%;
     margin-top: 2vw;
-    border-radius: 0 0 4vh 4vh;
 }
 /*Hide checkbox*/
 .data-box input[type=checkbox]{
@@ -455,27 +534,64 @@ form .button-box button:hover > .arrow-right{
 }
 .results-list .data-box .profile-button {
     width: 100%;
-    height: 45px;
-    font-size: 1em;
+    height: 72px;
     display: flex;
-    justify-content: center;
     align-items: center;
     border: none;
-    font-weight: 500;
     border-radius: 4vh;
-    color: #F9ECD9;
     background-color: #3D2F2C;
     outline: none;
     transition: all 0.3s ease;
     cursor: pointer;
     user-select: none;
+    padding: 0 2vw;
+
+
+    white-space: nowrap;
+    text-align:left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.profile-photo{
+    display: inline;
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+    background-color: #3D2F2C;
+    border-radius: 50%;
+    margin: 0 15px 0 0;
+}
+.profile-button .button-div{
+    width: 100%;
+    margin: 0;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+.button-div .button-title{
+    color: #F9ECD9;
+    font-size: 1em;
+    font-weight: 600;
+    width: 100%;
+    margin: 0;
+    text-align:left;
+}
+.button-div .button-subtitle{
+    color: #e9cea6;
+    font-weight: 400;
+    width: 100%;
+    margin: 0;
+    white-space: nowrap;
+    text-align:left;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .profile-button .arrow-down-1{
     border: solid #F9ECD9;
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 2px;
-    transform: translate(2vw, -2px) rotate(45deg);
+    margin: 0 25px;
+    transform: translate(0, -2px) rotate(45deg);
     transition: all 0.3s ease;
     user-select: none;
 }
@@ -489,56 +605,48 @@ form .button-box button:hover > .arrow-right{
 }
 .data-box input[type=checkbox]:checked ~ .profile-button .arrow-down-1{
     border-width: 0 3px 3px 0;
-    transform: translate(2vw, 2px) rotate(-135deg);
+    transform: translate(0, 2px) rotate(-135deg);
     transition: all 0.3s ease;
 }
 .results-list .data-box .profile-content{
     display:none;
-    background-color: #b79087;
-    border: 0px solid #3D2F2C;
+    background-color: #FFFFFF;
+    border: 3px solid #3D2F2C;
     border-top: none;
     border-radius: 0 0 4vh 4vh;
     align-items: center;
     overflow: hidden;
-    padding: 1.5vw 2vw 1vw 2vw;
-}
-.profile-content .outer-photo-box{
-    height: 350px;
-    width: 350px;
-    margin: 0 1vw 0 1vw;
-    overflow: hidden;
-    border-radius: 4vh;
-    background-color: #F9ECD9;
-    box-shadow: 0 0 0 3px #3D2F2C;
-    display: block;
-}
-.profile-content .inner-photo-box{
-    position:relative;
-    float: right;
-    right: 50%;
-}
-.inner-photo-box .profile-photo{
-    height: 350px;
-    width: auto;
-    position: relative; 
-    right:-50%;
+    padding: 1vw 2vw;
 }
 .profile-content .profile-box{
-    width: 66%;
+    width: 100%;
     display: block;
     margin: 0vw;
 }
-.profile-box .info-box{
+.profile-content .profile-box-visita{
+    width: 100%;
+    display: block;
+    margin: 0vw;
+}
+.profile-box .info-box,
+.profile-box-visita .info-box{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    margin: 0vw;
+    justify-content: space-between;
+    margin: 0vw 0 1.5vw;
 }
+
 .info-box .trait-box{
-    width: calc(100% / 2 - 4vw);
-    margin: 0vw 2vw 1vw;
+    width: calc(100% / 2 - 2vw);
+    margin: 0vw 0vw 1vw;
 }
-.trait-box .info-title{
+.info-box .text-box-2{
+    width: 100%;
+    margin: 0vw 0vw 1vw;
+}
+.trait-box .info-title,
+.text-box-2 .info-title{
     font-weight: 700;
     font-size: 1em;
     color: #3D2F2C;
@@ -548,6 +656,7 @@ form .button-box button:hover > .arrow-right{
 .trait-box .info-text{
     display: block;
     height: auto;
+    text-align: left;
     width: 100%;
     font-weight: 400;
     font-size: 13px;
@@ -558,17 +667,43 @@ form .button-box button:hover > .arrow-right{
     padding: 10px 20px;
     outline: none;
     transition: all 0.3s ease;
-    word-wrap: break-word;
 }
-.profile-box .action-box{
+.text-box-2 .info-paragraph{
+    display: block;
+    height: auto;
+    text-align: left;
+    width: 100%;
+    font-weight: 400;
+    font-size: 13px;
+    color: #222;
+    border: 3px solid #3D2F2C;
+    border-radius: 4vh;
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.profile-box-visita h3,
+.profile-box h3{
+    font-size: 1.5em;
+    font-weight: 700;
+    width: 100%;
+    color: #3D2F2C;
+    margin: 0;
+    text-align:left;
+}
+.profile-box .action-box,
+.profile-box-visita .action-box{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    margin: 1vw 0vw 0vw;
+    justify-content: space-between;
+    margin: 0;
 }
-.profile-box .action-box a{
-    width: calc(100% / 2 - 4vw);
-    margin: 1vw 2vw 1vw;
+.profile-box .action-box a,
+.profile-box-visita .action-box a{
+    width: 100%;
+    margin: 0vw 0vw 1vw;
     height: 45px;
     font-size: 1em;
     display: flex;
@@ -585,10 +720,13 @@ form .button-box button:hover > .arrow-right{
     user-select: none;
     text-decoration: none;
 }
-.profile-box .action-box a:hover{
+.profile-box .action-box a:hover,
+.profile-box-visita .action-box a:hover{
     background-color: #FC6F42;
     transition: all 0.3s ease;
 }
+
+
 .contenido .empty-box{
     width: 100%;
     padding: 2vw;
@@ -609,7 +747,6 @@ form .button-box button:hover > .arrow-right{
     margin: 0px;
     text-align:left;
 }
-
 
 
 
@@ -661,6 +798,12 @@ form .button-box button:hover > .arrow-right{
         display:block;
     }
 
+    .contenido h1{
+        font-size: 1.5em;
+    }
+    .contenido p{
+        font-size: 13px;
+    }
     form .details-box .input-box,
     form .details-box .select-box,
     form .details-box .upload-box,
@@ -669,68 +812,45 @@ form .button-box button:hover > .arrow-right{
         width: 100%;
         margin-top: 2vw;
     }
-    .profile-content .profile-box{
-        width: 96%;
+    .profile-content .profile-box,
+    .profile-content .profile-box-visita{
+        width: 98%;
         margin: auto;
         margin-bottom: 3.5vw;
     }
-    .info-box .trait-box{
-        width: calc(100% - 4vw);
-        margin: 2vw;
+    .results-list .data-box{
+        width: 100%;
     }
-    .results-list .data-box .profile-button {
-        font-size: 0.8em;
+    /*.profile-photo{
+        display: inline;
+        object-fit: cover;
+        width: 10vw;
+        height: 10vw;
+        background-color: #3D2F2C;
+        border-radius: 3vh;
+        margin: 15px 0 15px 15px;
+    }*/
+    .info-box .trait-box{
+        width: 100%;
+        margin: 0 0 2vw;
     }
     .data-box input[type=checkbox]:checked ~ .profile-content{
         display:block;
     }
-    .profile-content .outer-photo-box{
-        margin: 3vw auto 1vw;
-        overflow: hidden;
-        border-radius: 4vh;
-        background-color: #FFFFFF;
-        box-shadow: 0 0 0 3px #3D2F2C;
-        display: block;
-    }
-    .profile-content .inner-photo-box{
-        position:relative;
-        float: right;
-        right: 50%;
-    }
-    .inner-photo-box .profile-photo{
-        width: auto;
-        position: relative; 
-        right:-50%;
-    }
-    .profile-box .action-box{
-        margin: 3vw 0 0;
-    }
-    .profile-box .action-box a{
+    .profile-box .action-box a,
+    .profile-box-visita .action-box a{
         width: 100%;
-        margin: 3vw 2vw;
+        margin: 3vw 0vw 0vw;
     }
 }
 
-@media screen and (max-width : 500px){
-    .profile-content .outer-photo-box{
-        height: 70vw;
-        width: 70vw;
-        margin: 3vw auto 1vw;
+@media screen and (max-width : 600px){
+
+}
+
+@media screen and (max-width : 280px){
+    .contenido{
+        width: 280px;
         overflow: hidden;
-        border-radius: 4vh;
-        background-color: #FFFFFF;
-        box-shadow: 0 0 0 3px #3D2F2C;
-        display: block;
-    }
-    .profile-content .inner-photo-box{
-        position:relative;
-        float: right;
-        right: 50%;
-    }
-    .inner-photo-box .profile-photo{
-        height: 70vw;
-        width: auto;
-        position: relative; 
-        right:-50%;
     }
 }

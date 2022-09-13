@@ -16,17 +16,17 @@ namespace MascotaFeliz.App.Consola
         {
             Console.WriteLine("Hello World!");
 
-            //AddDueno();
+            AddDueno();
             //AddVeterinario();
             //AddMascota();
 
-            BuscarDueno(1);
-            BuscarVeterinario(2);
-            BuscarMascota(1);
+            //BuscarDueno(1);
+            //BuscarVeterinario(2);
+            //BuscarMascota(1);
 
             ListarDuenos();
-            ListarVeterinarios();
-            ListarMascotas();
+            //ListarVeterinarios();
+            //ListarMascotas();
         }
 
         //----Add Methods----
@@ -35,12 +35,12 @@ namespace MascotaFeliz.App.Consola
         {
             var dueno = new Dueno
             {
-                Cedula = "1212",
-                Nombres = "Juan",
-                Apellidos = "Sin Miedo",
-                Direccion = "Bajo un puente",
-                Telefono = "1234567891",
-                Correo = "juansinmiedo@gmail.com"
+                Cedula = "1414",
+                Nombres = "Jose",
+                Apellidos = "Perez",
+                Direccion = "Av 26 - 35",
+                Telefono = "318578475",
+                Correo = "joseperez@gmail.com"
             };
             _repoDueno.AddDueno(dueno);
         }

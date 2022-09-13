@@ -41,7 +41,7 @@ namespace MascotaFeliz.App.Persistencia
 
        public IEnumerable<Mascota> GetAllMascotas()
         {
-            return GetAllMascotas_();
+            return _appContext.Mascotas;
         }
 
         public IEnumerable<Mascota> GetMascotasPorFiltro(string filtro)
@@ -55,11 +55,6 @@ namespace MascotaFeliz.App.Persistencia
                 }
             }
             return mascotas;
-        }
-
-        public IEnumerable<Mascota> GetAllMascotas_()
-        {
-            return _appContext.Mascotas;
         }
 
         public Mascota GetMascota(int idMascota)

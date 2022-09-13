@@ -22,10 +22,10 @@
 
         <ul class="menu">
             <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Mascotas<i class="arrow-down"></i></a>
+                <a href="javascript:void(0)" class="dropbtn, active">Mascotas<i class="arrow-down"></i></a>
                 <div class="dropdown-content">
                     <a href="RegistrarMascota.html">Crear</a>
-                    <a href="ConsultaMascotas.html">Consultar Datos</a>
+                    <a href="ConsultaMascotas.html" class="active">Consultar Datos</a>
                     <a href="ActualizarMascota.html">Actualizar Datos</a>
                     <hr>
                     <a href="ConsultaHistoria.html">Ver Historia Clínica</a>
@@ -44,10 +44,10 @@
             </li>
 
             <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn, active">Veterinarios<i class="arrow-down"></i></a>
+                <a href="javascript:void(0)" class="dropbtn">Veterinarios<i class="arrow-down"></i></a>
                 <div class="dropdown-content">
                     <a href="RegistrarVeterinario.html">Crear</a>
-                    <a href="ConsultaVeterinarios.html" class="active">Consultar Datos</a>
+                    <a href="ConsultaVeterinarios.html">Consultar Datos</a>
                     <a href="ActualizarVeterinario.html">Actualizar Datos</a>
                 </div>
             </li>
@@ -66,12 +66,34 @@
         <hr>
         <div class="form-container">
             <form action="#">
-                <div class="details-box">
 
+                <div class="details-box">
                     <div class="id-box-1">
                         <span class="details">Buscar Mascota:</span>
                         <input type="text" name="search-id" placeholder="Ingrese el ID o Nombre de la mascota que desea consultar" required>
                     </div>
+                </div>
+
+                <hr>
+
+                <div class="details-box">
+                    <input type="checkbox" id="show-filter">
+                    <label for="show-filter" class="filter-button">
+                        <p class="button-title">Filtros</p>
+                        <i class="arrow-down-1"></i>
+                    </label>
+
+                    <div class="filter-content">
+                        <div class="filter-box">
+                            <span class="details">Filtrar por Dueño:</span>
+                            <input type="text" name="dueno-id" placeholder="Ingrese el Nombre o Cédula del dueño para filtrar los resultados" required>
+                        </div>
+
+                        <div class="filter-box">
+                            <span class="details">Filtrar por Veterinario:</span>
+                            <input type="text" name="veterinario-id" placeholder="Ingrese el Nombre o Cédula del veterinario para filtrar los resultados" required>
+                        </div>
+                     </div>
 
                 </div>
             </form>
@@ -84,18 +106,23 @@
 
                 <div class="data-box">
                     <input type="checkbox" id="show-profile">
-                    <label for="show-profile" class="profile-button">Tommy - 1<i class="arrow-down-1"></i></label>
+                    <label for="show-profile" class="profile-button">
+                        <img class="profile-photo" src="/MascotaFeliz.App/Imagenes/Placeholder-photo-dog.jpg" alt="Foto de perfil de la mascota">
+                        <div class="button-div">
+                            <p class="button-title">Tommy</p>
+                            <p class="button-subtitle">Renzo Alejandro Garavito Camacho</p>
+                        </div>
+                        <i class="arrow-down-1"></i>
+                    </label>
                     <div class="profile-content">
 
-                        <div class="outer-photo-box">
-                            <div class="inner-photo-box">
-                                <img class="profile-photo" src="/MascotaFeliz.App/Imagenes/Placeholder-photo-dog.jpg" alt="Foto de perfil de la mascota">
-                            </div>
-                        </div>
-
                         <div class="profile-box">
-       
+
+
                             <div class="info-box">
+
+                                <h3>Información básica</h3>
+
                                 <div class="trait-box">
                                     <span class="info-title">Nombre</span>
                                     <span class="info-text">Tommy</span>
@@ -120,6 +147,11 @@
                                     <span class="info-title">Raza</span>
                                     <span class="info-text">Cocker Spaniel</span>
                                 </div>
+                            </div>
+                            
+                            <div class="info-box">
+
+                                <h3>Información asociada</h3>
 
                                 <div class="trait-box">
                                     <span class="info-title">Dueño</span>
@@ -134,7 +166,81 @@
                             </div>
 
                             <div class="action-box">
-                                <a href="ActualizarDueno.html">Actualizar</a>
+                                <a href="ActualizarMascota.html">Actualizar</a>
+                                <a href="ConsultaHistoria.html">Ver Historia Clínica</a>
+                                <a href="ConsultaDuenos.html">Ver Dueño</a>
+                                <a href="ConsultaVeterinarios.html">Ver Veterinario</a>
+
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="data-box">
+                    <input type="checkbox" id="2">
+                    <label for="2" class="profile-button">
+                        <img class="profile-photo" src="/MascotaFeliz.App/Imagenes/Placeholder-photo-dog.jpg" alt="Foto de perfil de la mascota">
+                        <div class="button-div">
+                            <p class="button-title">Tommy</p>
+                            <p class="button-subtitle">Renzo Alejandro Garavito Camacho</p>
+                        </div>
+                        <i class="arrow-down-1"></i>
+                    </label>
+                    <div class="profile-content">
+
+                        <div class="profile-box">
+
+
+                            <div class="info-box">
+
+                                <h3>Información básica</h3>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Nombre</span>
+                                    <span class="info-text">Tommy</span>
+                                </div>  
+
+                                <div class="trait-box">
+                                    <span class="info-title">ID</span>
+                                    <span class="info-text">1</span>
+                                </div> 
+
+                                <div class="trait-box">
+                                    <span class="info-title">Color</span>
+                                    <span class="info-text">Sepia</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Especie</span>
+                                    <span class="info-text">Perro</span>
+                                </div>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Raza</span>
+                                    <span class="info-text">Cocker Spaniel</span>
+                                </div>
+                            </div>
+                            
+                            <div class="info-box">
+
+                                <h3>Información asociada</h3>
+
+                                <div class="trait-box">
+                                    <span class="info-title">Dueño</span>
+                                    <span class="info-text">Renzo Alejandro Gravito Camacho</span>
+                                </div>
+                                
+                                <div class="trait-box">
+                                    <span class="info-title">Veterinario</span>
+                                    <span class="info-text">Renzo Alejandro Garavito Camacho</span>
+                                </div>
+
+                            </div>
+
+                            <div class="action-box">
+                                <a href="ActualizarMascota.html">Actualizar</a>
                                 <a href="ConsultaHistoria.html">Ver Historia Clínica</a>
                                 <a href="ConsultaDuenos.html">Ver Dueño</a>
                                 <a href="ConsultaVeterinarios.html">Ver Veterinario</a>

@@ -1,0 +1,125 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.ListaDuenosModel
+@{
+    ViewData["Title"] = "Lista Dueños";
+}
+
+<body>
+
+    <div class="contenido">
+
+        <div class="title-container">
+            <h1>Consultar Dueño</h1>
+        </div> 
+        <hr>
+        <div class="form-container">
+            <form action="#">
+                <div class="details-box">
+
+                    <div class="id-box-1">
+                        <form method="get">
+                        <span class="details">Buscar Dueño:</span>
+                        <input type="text" id="searchTerm" placeholder="Ingrese el ID, Nombre o Cédula del dueño que desea consultar">
+                        <button type="submit" class="btn">Search</button>
+                        </form>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="form-container">
+            <div class="results-list">
+                @if (Model.listaDuenos != null)
+                {
+                    @foreach (var dueno in Model.listaDuenos)
+                    {
+                        <div class="data-box">
+                            <input type="checkbox" id="@dueno.Id">
+                            <label for="@dueno.Id" class="profile-button">
+                                <img class="profile-photo" src="~/Imagenes/Placeholder-photo-dueno-h.jpg" alt="Foto de perfil del veterinrio">
+                                <div class="button-div">
+                                    <p class="button-title">@dueno.Nombres @dueno.Apellidos</p>
+                                    <p class="button-subtitle">C.C.: @dueno.Cedula</p>
+                                </div>
+                                <i class="arrow-down-1"></i>
+                            </label>                    
+                            <div class="profile-content">
+                    
+
+                                <div class="profile-box">
+            
+                                    <div class="info-box">
+                                        <h3>Información básica</h3>
+
+                                        <div class="trait-box">
+                                            <span class="info-title">Nombre</span>
+                                            <span class="info-text">@dueno.Nombres</span>
+                                        </div>  
+
+                                        <div class="trait-box">
+                                            <span class="info-title">Apellidos</span>
+                                            <span class="info-text">@dueno.Apellidos</span>
+                                        </div>
+
+                                        <div class="trait-box">
+                                            <span class="info-title">ID</span>
+                                            <span class="info-text">@dueno.Id</span>
+                                        </div> 
+
+                                        <div class="trait-box">
+                                            <span class="info-title">Cédula</span>
+                                            <span class="info-text">@dueno.Cedula</span>
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div class="info-box">
+
+                                        <h3>Información de contacto</h3>
+
+                                        <div class="trait-box">
+                                            <span class="info-title">Dirección</span>
+                                            <span class="info-text">@dueno.Direccion</span>
+                                        </div>
+
+                                        <div class="trait-box">
+                                            <span class="info-title">Teléfono</span>
+                                            <span class="info-text">@dueno.Telefono</span>
+                                        </div>
+
+                                        <div class="trait-box">
+                                            <span class="info-title">E-mali</span>
+                                            <span class="info-text">@dueno.Correo</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="action-box">
+                                        <a href="ActualizarDueno.html">Actualizar</a>
+                                        <a href="ConsultaMascotas.html">Ver Mascotas</a>
+            
+                                    </div>
+
+                                </div>
+                                
+                            </div>
+                        </div>
+                    }
+                }
+
+
+                @if (Model.listaDuenos == null)
+                {
+                    <div class="empty-box">
+                        <h2>Lo sentimos.</h2>
+                        <h3>No se encontró ningún resultado que coincida con esta búsqueda.</h3>
+                    </div>
+                }
+                
+            </div>
+            <hr>
+        </div>
+    </div>
+</body>

@@ -41,7 +41,7 @@ namespace MascotaFeliz.App.Persistencia
 
        public IEnumerable<Veterinario> GetAllVeterinarios()
         {
-            return GetAllVeterinarios_();
+            return _appContext.Veterinarios;
         }
 
         public IEnumerable<Veterinario> GetVeterinariosPorFiltro(string filtro)
@@ -55,11 +55,6 @@ namespace MascotaFeliz.App.Persistencia
                 }
             }
             return veterinarios;
-        }
-
-        public IEnumerable<Veterinario> GetAllVeterinarios_()
-        {
-            return _appContext.Veterinarios;
         }
 
         public Veterinario GetVeterinario(int idVeterinario)
