@@ -11,7 +11,8 @@ body{
     align-items: center;
     background-attachment:fixed;
     background-color: #F9ECD9;
-    margin-top: 50px ;
+    display: flex;
+    flex-direction: column;
     /*#FC6F42
     #222222
     #FAC43D
@@ -19,12 +20,19 @@ body{
     #02AD9D
     #F9ECD9*/
 }
+.main{
+    position: relative;
+    min-height: calc(100vh - 115px);
+    margin: 55px 0 0;
+    width: 100%;
+}
 
 nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    position:fixed;
+    position: fixed;
+    left: 0;
     top: 0;
     width: 100%;
     background-color: #F9ECD9;
@@ -70,8 +78,6 @@ nav input[type=checkbox]:checked ~ .menu{
 }
 .logo .svg-logo img{
     float: left;
-}
-.logo .svg-logo img{
     height: 55px;
     padding: 8px;
 }
@@ -85,7 +91,7 @@ nav input[type=checkbox]:checked ~ .menu{
     text-align: center;
     text-decoration: none;
 }
-ul{
+.menu{
     list-style-type: none;
 }
 li {
@@ -290,6 +296,19 @@ form .details-box .text-box{
     padding-right: 20px;
     transition: all 0.3s ease;
 }
+.details-box .input-box input:not(.uploader):read-only{
+    color: black;
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 13px;
+    border-radius: 4vh;
+    border: 3px solid #777;
+    background-color: rgb(204, 204, 204);
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: all 0.3s ease;
+}
 .details-box .text-box textarea{
     color: #777;
     height: 200px;
@@ -474,14 +493,15 @@ tr:nth-child(even) {
 form .button-box{
     height: 45px;
     width: 100%;
-    display: inline-block;
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     vertical-align: middle;
     margin-top: 2vw;
 }
 form .button-box button{
     height: 100%;
-    width: 100%;
+    width: calc(100% / 2 - 2vw);
     border: none;
     font-size: 1em;
     font-weight: 500;
@@ -500,7 +520,40 @@ form .button-box button .arrow-right{
     transform: translate(3px, 0) rotate(-45deg);
     transition: all 0.3s ease;
 }
+form .button-box a{
+    height: 100%;
+    width: calc(100% / 2 - 2vw);
+    border: none;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 4vh;
+    color: #F9ECD9;
+    background-color: #3D2F2C;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    user-select: none;
+    text-decoration: none;
+}
+form .button-box a .arrow-left{
+    border: solid #F9ECD9;
+    border-width: 0px 3px 3px 0px;
+    display: inline-block;
+    padding: 3px;
+    transform: translate(-3px, 0) rotate(135deg);
+    transition: all 0.3s ease;
+}
 form .button-box button:hover{
+    color: #F9ECD9;
+    background-color: #FC6F42;
+    box-shadow: inset 0px 0px 0 15px #FC6F42;
+    transition: all 0.3s ease;
+}
+form .button-box a:hover{
     color: #F9ECD9;
     background-color: #FC6F42;
     box-shadow: inset 0px 0px 0 15px #FC6F42;
@@ -508,6 +561,10 @@ form .button-box button:hover{
 }
 form .button-box button:hover > .arrow-right{
     transform: translate(7px, 0) rotate(-45deg);
+    transition: all 0.3s ease;
+}
+form .button-box a:hover > .arrow-left{
+    transform: translate(-7px, 0) rotate(135deg);
     transition: all 0.3s ease;
 }
 
@@ -749,6 +806,67 @@ form .button-box button:hover > .arrow-right{
 }
 
 
+footer {
+    list-style-type: none;
+    margin: 0;
+    margin-top: auto;
+    padding: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #3D2F2C;
+    box-shadow: 0px 0px 10px 0px #3D2F2C;
+    overflow:visible;
+    z-index: 1;
+    display: inline-block;
+}
+.logo-wrapper{
+    display: inline;
+    vertical-align: middle;
+}
+.logo-wrapper .svg-logo img{
+    float: left;
+    height: 55px;
+    padding: 8px;
+}
+.logo-wrapper .text-logo{
+    display: inline-block;
+    font-size: 30px;
+    line-height: 35px;
+    padding: 10px 30px 10px 0px;
+    font-weight: 700;
+    color:#F9ECD9;
+    text-align: center;
+    text-decoration: none;
+}
+.options-wrapper{
+    list-style-type: none;
+}
+.options-wrapper li {
+    float: left;
+}
+.options-wrapper li hr{
+    border-top: 1px solid #b79087;
+    border-bottom: 1px solid #b79087;
+    background-color: #b79087;
+
+}
+.options-wrapper li a {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 20px 15px;
+    color: #F9ECD9;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+li a:hover {
+    box-shadow: inset 0 -5px 0 #FC6F42;
+    color: #FC6F42;
+    transition: all 0.3s ease;
+}
+
 
 /*Responsive Styles*/
 @media screen and (max-width : 900px){
@@ -756,24 +874,21 @@ form .button-box button:hover > .arrow-right{
         display:inline;
     }
     /*Make dropdown links appear inline*/
-    nav ul {
+    nav .menu {
         display: none;
         clear:both;
         border-top: 3px solid #b79087;
     }
     /*Create vertical spacing*/
-    ul li{
+    .menu li{
         float: none;
-    }
-    /*Make all menu links full width*/
-    ul li {
         width: 100%;
     }
-    ul li a{
+    .menu li a{
         width: 100%;
         font-size: 1em;
     }
-    ul li a:not(.active), .dropbtn:not(.active){
+    .menu li a:not(.active), .dropbtn:not(.active){
         border-bottom: 3px solid #b79087;
     }
     

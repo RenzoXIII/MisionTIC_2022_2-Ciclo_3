@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MascotaFeliz.App.Dominio;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace MascotaFeliz.App.Persistencia
 {
@@ -47,11 +48,12 @@ namespace MascotaFeliz.App.Persistencia
         public IEnumerable<Dueno> GetDuenosPorFiltro(string filtro)
         {
             var duenos = GetAllDuenos(); // Obtiene todos los saludos
+            var compareInfo = CultureInfo.InvariantCulture.CompareInfo;
             if (duenos != null)  //Si se tienen saludos
             {
                 if (!String.IsNullOrEmpty(filtro)) // Si el filtro tiene algun valor
                 {
-                    duenos = duenos.Where(s => (s.Nombres+" "+s.Apellidos).IndexOf(filtro, StringComparison.CurrentCultureIgnoreCase) >= 0 ||
+                    duenos = duenos.Where(s => compareInfo.IndexOf((s.Nombres+" "+s.Apellidos), filtro, CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreCase) > -1 ||
                                                s.Cedula.Contains(filtro));
                 }
             }
@@ -70,6 +72,7 @@ namespace MascotaFeliz.App.Persistencia
             {
                 duenoEncontrado.Nombres = dueno.Nombres;
                 duenoEncontrado.Apellidos = dueno.Apellidos;
+                duenoEncontrado.Cedula = dueno.Cedula;
                 duenoEncontrado.Direccion = dueno.Direccion;
                 duenoEncontrado.Telefono = dueno.Telefono;
                 duenoEncontrado.Correo = dueno.Correo;

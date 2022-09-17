@@ -10,17 +10,20 @@ using MascotaFeliz.App.Persistencia;
 
 namespace MascotaFeliz.App.Frontend.Pages
 {
-    public class ListaDuenosModel : PageModel
+    public class ConsultaDuenosModel : PageModel
     {
         private static IRepositorioDueno _repoDueno = new RepositorioDueno(new Persistencia.AppContext());
         public IEnumerable<Dueno> listaDuenos {get;set;}
+        public IEnumerable<Dueno> listaDuenosFiltrados {get;set;}
+
 
         [BindProperty(SupportsGet = true)]
         public string searchTerm {get;set;}
 
         public void OnGet()
         {
-            listaDuenos = _repoDueno.GetDuenosPorFiltro(searchTerm);
+            listaDuenos = _repoDueno.GetAllDuenos();
+            listaDuenosFiltrados = _repoDueno.GetDuenosPorFiltro(searchTerm);
         }
         
     }

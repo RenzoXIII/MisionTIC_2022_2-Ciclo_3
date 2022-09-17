@@ -1,0 +1,106 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.EditarDuenoModel
+@{
+    int duenoId = Model.dueno.Id;
+    @if (Model.dueno.Id > 0)
+    {
+    ViewData["Title"] = "Actualizar Dueño";
+    }
+    else
+    {
+    ViewData["Title"] = "Añandir Nuevo Dueño";
+    }
+}
+
+<body>
+    <div class="contenido">
+
+        <div class="title-container">
+            @if (Model.dueno.Id > 0)
+            {
+            <h1>Actualizar Dueño</h1>
+            }
+            else
+            {
+            <h1>Añadir Nuevo Dueño</h1>
+            }
+        </div> 
+        <p>Los campos marcados con <b>*</b> son obligatorios.</p>
+        <hr>
+        <div class="form-container">
+            <form method="post">
+
+                @if (Model.dueno != null)
+                {
+                    <div class="details-box">
+                        @if (Model.dueno.Id > 0)
+                        {
+                            <div class="input-box">
+                                <span class="details">ID*</span>
+                                <input type="text" asp-for="dueno.Id" placeholder="Ingrese su Id" value="@Model.dueno.Id" required readonly>
+                            </div>
+                        }
+                        else
+                        {
+                        }
+                        
+                        <div class="input-box">
+                            <span class="details">Nombre*</span>
+                            <input type="text" asp-for="dueno.Nombres" placeholder="Ingrese su nombre" value="@Model.dueno.Nombres" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Apellidos*</span>
+                            <input type="text" asp-for="dueno.Apellidos" placeholder="Ingrese sus apellidos" value="@Model.dueno.Apellidos" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Cédula*</span>
+                            <input type="text" asp-for="dueno.Cedula" placeholder="Ingrese su número de cédula" value="@Model.dueno.Cedula" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Dirección*</span>
+                            <input type="text" asp-for="dueno.Direccion" placeholder="Ingrese la dirección de su domicilio" value="@Model.dueno.Direccion" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Teléfono*</span>
+                            <input type="number" asp-for="dueno.Telefono" placeholder="Ingrese su número de teléfono" value="@Model.dueno.Telefono" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">E-mail*</span>
+                            <input type="email" asp-for="dueno.Correo" placeholder="Ingrese su dirección e-mail" value="@Model.dueno.Correo" required>
+                        </div>
+                        
+
+                    </div>
+
+                    <div class="details-box">
+                        <div class="upload-box">
+                            <span class="details">Sube una foto (Opcional)</span>
+                            <!--input class="uploader" type="file" id="photo" name="Photo" accept="image/*"-->
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="button-box">
+                        <a type="button" asp-page="/Duenos/ConsultaDuenos" asp-route-searchTerm="@Model.dueno.Cedula"><i class="arrow-left"></i>Regresar</a>
+                        <button type="submit" value="Registrar">Registrar<i class="arrow-right"></i></button>
+                    </div>
+                }
+
+                @if (Model.dueno == null)
+                {
+                    <div class="empty-box">
+                        <h2>Lo sentimos.</h2>
+                        <h3>No se encontró ningún resultado que coincida con esta búsqueda.</h3>
+                        <h3>Ingrese un nuevo término de búsqueda</h3>
+                    </div>
+                }
+                
+            </form>
+        </div>
+    </div>
+</body>
