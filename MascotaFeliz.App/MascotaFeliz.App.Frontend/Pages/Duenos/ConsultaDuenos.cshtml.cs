@@ -12,7 +12,7 @@ namespace MascotaFeliz.App.Frontend.Pages
 {
     public class ConsultaDuenosModel : PageModel
     {
-        private static IRepositorioDueno _repoDueno = new RepositorioDueno(new Persistencia.AppContext());
+        private readonly IRepositorioDueno _repoDueno = new RepositorioDueno(new Persistencia.AppContext());
         public IEnumerable<Dueno> listaDuenos {get;set;}
         public IEnumerable<Dueno> listaDuenosFiltrados {get;set;}
 

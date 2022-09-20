@@ -1,13 +1,13 @@
 ﻿@page
-@model MascotaFeliz.App.Frontend.Pages.ConsultaDuenosModel
+@model MascotaFeliz.App.Frontend.Pages.ConsultaVeterinariosModel
 @{
-    ViewData["Title"] = "Consulta Dueños";
+    ViewData["Title"] = "Consulta Veterinarios";
 }
 
 <div class="contenido">
 
     <div class="title-container">
-        <h1>Consultar Dueño</h1>
+        <h1>Consultar Veterinario</h1>
     </div> 
     <hr>
     <div class="form-container">
@@ -15,14 +15,14 @@
             <div class="details-box">
 
                 <div class="id-box-1">
-                    <span class="details">Buscar Dueño:</span>
-                    <input list="duenos" type="text" asp-for="searchTerm" placeholder="Ingrese el ID, Nombre o Cédula del dueño que desea consultar">
-                    @if (Model.listaDuenos != null)
+                    <span class="details">Buscar Veterinario:</span>
+                    <input list="veterinarios" type="text" asp-for="searchTerm" placeholder="Ingrese el ID, Nombre o Cédula del veterinario que desea consultar">
+                    @if (Model.listaVeterinarios != null)
                     {
-                        <datalist id="duenos">
-                        @foreach (var dueno in Model.listaDuenos)
+                        <datalist id="veterinarios">
+                        @foreach (var veterinario in Model.listaVeterinarios)
                         {
-                                <option value="@dueno.Cedula">@dueno.Nombres @dueno.Apellidos</option>
+                                <option value="@veterinario.Cedula">@veterinario.Nombres @veterinario.Apellidos</option>
                         }
                         </datalist>
                     }
@@ -39,17 +39,17 @@
 
     <div class="form-container">
         <div class="results-list">
-            @if (Model.listaDuenosFiltrados != null)
+            @if (Model.listaVeterinariosFiltrados != null)
             {
-                @foreach (var dueno in Model.listaDuenosFiltrados)
+                @foreach (var veterinario in Model.listaVeterinariosFiltrados)
                 {
                     <div class="data-box">
-                        <input type="checkbox" id="@dueno.Id">
-                        <label for="@dueno.Id" class="profile-button">
-                            <img class="profile-photo" src="~/Imagenes/Placeholder-photo-dueno-h.jpg" alt="Foto de perfil de @dueno.Nombres @dueno.Apellidos">
+                        <input type="checkbox" id="@veterinario.Id">
+                        <label for="@veterinario.Id" class="profile-button">
+                            <img class="profile-photo" src="~/Imagenes/Placeholder-photo-veterinario.jpg" alt="Foto de perfil de @veterinario.Nombres @veterinario.Apellidos">
                             <div class="button-div">
-                                <p class="button-title">@dueno.Nombres @dueno.Apellidos</p>
-                                <p class="button-subtitle">C.C.: @dueno.Cedula</p>
+                                <p class="button-title">@veterinario.Nombres @veterinario.Apellidos</p>
+                                <p class="button-subtitle">C.C.: @veterinario.Cedula</p>
                             </div>
                             <i class="arrow-down-1"></i>
                         </label>                    
@@ -63,22 +63,27 @@
 
                                     <div class="trait-box">
                                         <span class="info-title">Nombre</span>
-                                        <span class="info-text">@dueno.Nombres</span>
+                                        <span class="info-text">@veterinario.Nombres</span>
                                     </div>  
 
                                     <div class="trait-box">
                                         <span class="info-title">Apellidos</span>
-                                        <span class="info-text">@dueno.Apellidos</span>
+                                        <span class="info-text">@veterinario.Apellidos</span>
                                     </div>
 
                                     <div class="trait-box">
                                         <span class="info-title">ID</span>
-                                        <span class="info-text">@dueno.Id</span>
+                                        <span class="info-text">@veterinario.Id</span>
                                     </div> 
 
                                     <div class="trait-box">
                                         <span class="info-title">Cédula</span>
-                                        <span class="info-text">@dueno.Cedula</span>
+                                        <span class="info-text">@veterinario.Cedula</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Tarjeta profesional</span>
+                                        <span class="info-text">@veterinario.TarjetaProfesional</span>
                                     </div>
 
                                 </div>
@@ -89,23 +94,19 @@
 
                                     <div class="trait-box">
                                         <span class="info-title">Dirección</span>
-                                        <span class="info-text">@dueno.Direccion</span>
+                                        <span class="info-text">@veterinario.Direccion</span>
                                     </div>
 
                                     <div class="trait-box">
                                         <span class="info-title">Teléfono</span>
-                                        <span class="info-text">@dueno.Telefono</span>
+                                        <span class="info-text">@veterinario.Telefono</span>
                                     </div>
 
-                                    <div class="trait-box">
-                                        <span class="info-title">E-mali</span>
-                                        <span class="info-text">@dueno.Correo</span>
-                                    </div>
                                 </div>
 
                                 <div class="action-box">
-                                    <a asp-page="/Duenos/EditarDueno" asp-route-duenoId="@dueno.Id">Actualizar Datos</a>
-                                    <a asp-page="/Mascotas/ConsultaMascotas" asp-route-duenoId="@dueno.Id">Ver Mascotas</a>
+                                    <a asp-page="/Veterinarios/EditarVeterinario" asp-route-veterinarioId="@veterinario.Id">Actualizar Datos</a>
+                                    <a asp-page="/Mascotas/ConsultaMascotas" asp-route-veterinarioId="@veterinario.Id">Ver Mascotas</a>
         
                                 </div>
 
@@ -117,7 +118,7 @@
             }
 
 
-            @if (Model.listaDuenosFiltrados == null)
+            @if (Model.listaVeterinariosFiltrados == null)
             {
                 <div class="empty-box">
                     <h2>Lo sentimos.</h2>

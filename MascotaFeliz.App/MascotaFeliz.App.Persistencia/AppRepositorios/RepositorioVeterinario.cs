@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using MascotaFeliz.App.Dominio;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
+
 
 namespace MascotaFeliz.App.Persistencia
 {
@@ -47,11 +49,13 @@ namespace MascotaFeliz.App.Persistencia
         public IEnumerable<Veterinario> GetVeterinariosPorFiltro(string filtro)
         {
             var veterinarios = GetAllVeterinarios(); // Obtiene todos los saludos
+            var compareInfo = CultureInfo.InvariantCulture.CompareInfo;
             if (veterinarios != null)  //Si se tienen saludos
             {
                 if (!String.IsNullOrEmpty(filtro)) // Si el filtro tiene algun valor
                 {
-                    veterinarios = veterinarios.Where(s => s.Nombres.Contains(filtro));
+                    veterinarios = veterinarios.Where(s => compareInfo.IndexOf((s.Nombres+" "+s.Apellidos), filtro, CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreCase) > -1 ||
+                                                           s.Cedula.Contains(filtro));
                 }
             }
             return veterinarios;
@@ -69,6 +73,7 @@ namespace MascotaFeliz.App.Persistencia
             {
                 veterinarioEncontrado.Nombres = veterinario.Nombres;
                 veterinarioEncontrado.Apellidos = veterinario.Apellidos;
+                veterinarioEncontrado.Cedula = veterinario.Cedula;
                 veterinarioEncontrado.Direccion = veterinario.Direccion;
                 veterinarioEncontrado.Telefono = veterinario.Telefono;
                 veterinarioEncontrado.TarjetaProfesional = veterinario.TarjetaProfesional;

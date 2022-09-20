@@ -5,7 +5,9 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
-
+html{
+    position: relative;
+}
 body{
     justify-content: center;
     align-items: center;
@@ -21,10 +23,10 @@ body{
     #F9ECD9*/
 }
 .main{
-    position: relative;
-    min-height: calc(100vh - 115px);
+    min-height: calc(100vh - 110px);
     margin: 55px 0 0;
     width: 100%;
+    background-color: #F9ECD9;
 }
 
 nav {
@@ -35,11 +37,11 @@ nav {
     left: 0;
     top: 0;
     width: 100%;
-    background-color: #F9ECD9;
+    background-color: #FFFFFF;
     box-shadow: 0px 0px 10px 0px #3D2F2C;
     overflow:visible;
     display: inline-block;
-    z-index: 1;
+    z-index: 2;
 }
 nav .show-menu {
     font-weight: 500;
@@ -93,17 +95,19 @@ nav input[type=checkbox]:checked ~ .menu{
 }
 .menu{
     list-style-type: none;
+    overflow: hidden;
 }
-li {
+nav li,
+.menu li {
     float: left;
 }
-li hr{
+.menu li hr{
     border-top: 1px solid #b79087;
     border-bottom: 1px solid #b79087;
     background-color: #b79087;
 
 }
-li a:not( .dropdown-content a, .text-logo, .svg-logo), .dropbtn {
+.menu li a:not( .dropdown-content a, .text-logo, .svg-logo), .dropbtn {
     display: inline-block;
     font-weight: 500;
     font-size: 15px;
@@ -112,17 +116,17 @@ li a:not( .dropdown-content a, .text-logo, .svg-logo), .dropbtn {
     color: #3D2F2C;
     text-align: center;
     text-decoration: none;
-    background-color: #F9ECD9;
+    background-color: #FFFFFF;
     transition: all 0.3s ease;
 }
 
-li a:hover:not( .dropdown-content a, .text-logo, .svg-logo),
+.menu li a:hover:not( .dropdown-content a, .text-logo, .svg-logo),
 .dropbtn:hover:not(.active) {
     box-shadow: inset 0 -5px 0 #FC6F42;
     color: #FC6F42;
     transition: all 0.3s ease;
 }
-li a:hover:not( .dropdown-content a, .text-logo, .svg-logo) > .arrow-down,
+.menu li a:hover:not( .dropdown-content a, .text-logo, .svg-logo) > .arrow-down,
 .dropbtn:hover:not(.active) > .arrow-down{
     border: solid #FC6F42;
     border-width: 0 3px 3px 0;
@@ -143,11 +147,11 @@ nav input[type=checkbox]:checked ~ label .arrow-down-1{
 .active:not(.dropdown-content a){
     font-weight: 700;
     box-shadow: inset 0 -5px 0 #3D2F2C;
-    background-color: #F9ECD9;
+    background-color: #FFFFFF;
     transition: all 0.3s ease;
 }
 
-li.dropdown {
+.menu li.dropdown {
     display: inline-block;
 }
 .arrow-down {
@@ -162,10 +166,10 @@ li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #F9ECD9;
+    background-color: #FFFFFF;
     min-width: 160px;
     box-shadow: 0px 8px 10px 0px #3D2F2C;
-    z-index: 1;
+    z-index: 2;
 }
 
 .dropdown-content a {
@@ -184,12 +188,12 @@ li.dropdown {
 }
 .dropdown-content .active:hover {
     background-color: #FC6F42;
-    color: #F9ECD9;
+    color: #FFFFFF;
     transition: all 0.3s ease; 
 }
 .dropdown-content .active{
     background-color: #3D2F2C;
-    color: #F9ECD9;
+    color: #FFFFFF;
     transition: all 0.3s ease; 
 }
 
@@ -206,8 +210,7 @@ li.dropdown {
 
 
 .contenido{
-    background-color: #F9ECD9;
-    padding: 3vh 6vw;
+    padding: 30px 6vw 40px;
 }
 .title-container{
     display: block;
@@ -227,7 +230,7 @@ li.dropdown {
     border-bottom: 2px solid #b79087;
     background-color: #b79087;
 }
-.contenido p{
+.contenido .sub-text{
     font-size: 1em;
     font-weight: 400;
     color: #3D2F2C;
@@ -256,7 +259,7 @@ form .details-box .filter-content{
     background-color: #FFFFFF;
     border: 3px solid #3D2F2C;
     border-top: none;
-    border-radius: 0 0 4vh 4vh;
+    border-radius: 0 0 20px 20px;
     align-items: center;
     overflow: hidden;
     padding: 1vw 2vw;
@@ -290,7 +293,7 @@ form .details-box .text-box{
     width: 100%;
     outline: none;
     font-size: 13px;
-    border-radius: 4vh;
+    border-radius: 20px;
     border: 3px solid #3D2F2C;
     padding-left: 20px;
     padding-right: 20px;
@@ -302,7 +305,7 @@ form .details-box .text-box{
     width: 100%;
     outline: none;
     font-size: 13px;
-    border-radius: 4vh;
+    border-radius: 20px;
     border: 3px solid #777;
     background-color: rgb(204, 204, 204);
     padding-left: 20px;
@@ -315,7 +318,7 @@ form .details-box .text-box{
     width: 100%;
     text-align: justify;
     outline: none;
-    border-radius: 4vh;
+    border-radius: 20px;
     border: 3px solid #3D2F2C;
     padding: 10px 20px;
     transition: all 0.3s ease;
@@ -354,7 +357,7 @@ form .details-box .text-box{
     display: flex;
     align-items: center;
     border: none;
-    border-radius: 4vh;
+    border-radius: 20px;
     background-color: #3D2F2C;
     outline: none;
     transition: all 0.3s ease;
@@ -364,10 +367,9 @@ form .details-box .text-box{
     margin: 2vw 0 0;
 
 
-    white-space: nowrap;
-    text-align:left;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .filter-button p{
@@ -377,6 +379,9 @@ form .details-box .text-box{
     width: 100%;
     margin: 0;
     text-align:center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .filter-button .arrow-down-1{
     border: solid #F9ECD9;
@@ -393,7 +398,7 @@ form .details-box .text-box{
     transition: all 0.3s ease;
 }
 .details-box input[type=checkbox]:checked ~ .filter-button {
-    border-radius: 4vh 4vh 0 0;
+    border-radius: 20px 20px 0 0;
     transition: all 0.1s ease;
 }
 .details-box input[type=checkbox]:checked ~ .filter-button .arrow-down-1{
@@ -411,7 +416,7 @@ form .details-box .text-box{
     font-weight: 400;
     background-color: #FFFFFF;
     color: #3D2F2C;
-    border-radius: 4vh;
+    border-radius: 20px;
     padding: 0;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -429,7 +434,7 @@ form .details-box .text-box{
     font-family: Poppins;
     font-size: 13px;
     font-weight: 500;
-    border-radius: 4vh;
+    border-radius: 20px;
     color: #F9ECD9;
     background-color: #3D2F2C;
     transition: all 0.3s ease;
@@ -497,7 +502,7 @@ form .button-box{
     flex-wrap: wrap;
     justify-content: space-between;
     vertical-align: middle;
-    margin-top: 2vw;
+    margin-top: 40px;
 }
 form .button-box button{
     height: 100%;
@@ -505,7 +510,7 @@ form .button-box button{
     border: none;
     font-size: 1em;
     font-weight: 500;
-    border-radius: 4vh;
+    border-radius: 20px;
     color: #F9ECD9;
     background-color: #3D2F2C;
     outline: none;
@@ -526,7 +531,7 @@ form .button-box a{
     border: none;
     font-size: 1em;
     font-weight: 500;
-    border-radius: 4vh;
+    border-radius: 20px;
     color: #F9ECD9;
     background-color: #3D2F2C;
     outline: none;
@@ -591,24 +596,20 @@ form .button-box a:hover > .arrow-left{
 }
 .results-list .data-box .profile-button {
     width: 100%;
-    height: 72px;
+    height: 80px;
     display: flex;
     align-items: center;
     border: none;
-    border-radius: 4vh;
+    border-radius: 30px;
     background-color: #3D2F2C;
     outline: none;
     transition: all 0.3s ease;
     cursor: pointer;
     user-select: none;
-    padding: 0 2vw;
+    padding: 0 2vw 0 10px;
     margin: 0;
 
-
-    white-space: nowrap;
     text-align:left;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .profile-photo{
     display: inline;
@@ -624,6 +625,7 @@ form .button-box a:hover > .arrow-left{
     margin: 0;
     transition: all 0.3s ease;
     user-select: none;
+    overflow: hidden;
 }
 .button-div .button-title{
     color: #F9ECD9;
@@ -632,16 +634,19 @@ form .button-box a:hover > .arrow-left{
     width: 100%;
     margin: 0;
     text-align:left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .button-div .button-subtitle{
     color: #e9cea6;
     font-weight: 400;
     width: 100%;
     margin: 0;
-    white-space: nowrap;
     text-align:left;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .profile-button .arrow-down-1{
     border: solid #F9ECD9;
@@ -658,7 +663,7 @@ form .button-box a:hover > .arrow-left{
     transition: all 0.3s ease;
 }
 .data-box input[type=checkbox]:checked ~ .profile-button {
-    border-radius: 4vh 4vh 0 0;
+    border-radius: 30px 30px 0 0;
     transition: all 0.1s ease;
 }
 .data-box input[type=checkbox]:checked ~ .profile-button .arrow-down-1{
@@ -671,7 +676,7 @@ form .button-box a:hover > .arrow-left{
     background-color: #FFFFFF;
     border: 3px solid #3D2F2C;
     border-top: none;
-    border-radius: 0 0 4vh 4vh;
+    border-radius: 0 0 20px 20px;
     align-items: center;
     overflow: hidden;
     padding: 1vw 2vw;
@@ -720,7 +725,7 @@ form .button-box a:hover > .arrow-left{
     font-size: 13px;
     color: #222;
     border: 3px solid #3D2F2C;
-    border-radius: 4vh;
+    border-radius: 20px;
     background-color: #FFFFFF;
     padding: 10px 20px;
     outline: none;
@@ -735,7 +740,7 @@ form .button-box a:hover > .arrow-left{
     font-size: 13px;
     color: #222;
     border: 3px solid #3D2F2C;
-    border-radius: 4vh;
+    border-radius: 20px;
     background-color: #FFFFFF;
     padding: 10px 20px;
     outline: none;
@@ -769,7 +774,7 @@ form .button-box a:hover > .arrow-left{
     align-items: center;
     border: none;
     font-weight: 500;
-    border-radius: 4vh;
+    border-radius: 20px;
     color: #F9ECD9;
     background-color: #3D2F2C;
     outline: none;
@@ -809,18 +814,30 @@ form .button-box a:hover > .arrow-left{
 footer {
     list-style-type: none;
     margin: 0;
-    margin-top: auto;
     padding: 0;
-    height: 60px;
+    height: 55px;
     width: 100%;
-    background-color: #3D2F2C;
+    background-color: #FFFFFF;
     box-shadow: 0px 0px 10px 0px #3D2F2C;
-    overflow:visible;
+    display: inline;
     z-index: 1;
-    display: inline-block;
+}
+footer hr,
+footer .options-wrapper hr{
+    border-top: 1px solid #b79087;
+    border-bottom: 1px solid #b79087;
+    background-color: #b79087;
+    display: none;
 }
 .logo-wrapper{
     display: inline;
+    vertical-align: middle;
+    float: left;
+}
+footer .logo-wrapper .svg-logo{
+    display: inline;
+    width: 55px;
+    height: 55px;
     vertical-align: middle;
 }
 .logo-wrapper .svg-logo img{
@@ -834,34 +851,31 @@ footer {
     line-height: 35px;
     padding: 10px 30px 10px 0px;
     font-weight: 700;
-    color:#F9ECD9;
+    color:#02AD9D;
     text-align: center;
     text-decoration: none;
 }
 .options-wrapper{
     list-style-type: none;
+    overflow: hidden;
 }
 .options-wrapper li {
     float: left;
+    
 }
-.options-wrapper li hr{
-    border-top: 1px solid #b79087;
-    border-bottom: 1px solid #b79087;
-    background-color: #b79087;
-
-}
+.options-wrapper .copy,
 .options-wrapper li a {
     display: inline-block;
     font-weight: 500;
     font-size: 15px;
     line-height: 15px;
     padding: 20px 15px;
-    color: #F9ECD9;
+    color: #3D2F2C;
     text-align: center;
     text-decoration: none;
     transition: all 0.3s ease;
 }
-li a:hover {
+.options-wrapper li a:hover {
     box-shadow: inset 0 -5px 0 #FC6F42;
     color: #FC6F42;
     transition: all 0.3s ease;
@@ -886,7 +900,6 @@ li a:hover {
     }
     .menu li a{
         width: 100%;
-        font-size: 1em;
     }
     .menu li a:not(.active), .dropbtn:not(.active){
         border-bottom: 3px solid #b79087;
@@ -901,7 +914,8 @@ li a:hover {
     }
     
     .dropdown-content a {
-        font-size: 13px;
+        font-size: 14px;
+        font-weight: 500;
         display: block;
         text-align: center;
         transition: all 0.3s ease;
@@ -916,7 +930,7 @@ li a:hover {
     .contenido h1{
         font-size: 1.5em;
     }
-    .contenido p{
+    .contenido .sub-text{
         font-size: 13px;
     }
     form .details-box .input-box,
@@ -942,7 +956,7 @@ li a:hover {
         width: 10vw;
         height: 10vw;
         background-color: #3D2F2C;
-        border-radius: 3vh;
+        border-radius: 20px;
         margin: 15px 0 15px 15px;
     }*/
     .info-box .trait-box{
@@ -957,15 +971,63 @@ li a:hover {
         width: 100%;
         margin: 3vw 0vw 0vw;
     }
+    footer {
+        height: auto;
+        width: 100%;
+        display: block;
+    }
+    footer hr,
+    footer .options-wrapper hr{
+        display: block;
+    }
+    footer .logo-wrapper{
+        display: block;
+        float: none;
+        text-align: center;
+        width: 100%;
+        height: auto;
+        padding-top: 10px;
+    }
+    footer .logo-wrapper .svg-logo{
+        display: inline-block;
+        width: 55px;
+        height: 55px;
+        vertical-align: middle;
+    }
+    footer .logo-wrapper .svg-logo img{
+        float: none;
+    }
+    footer .logo-wrapper .text-logo{
+        vertical-align: middle;
+    }
+    footer .options-wrapper{
+        display: block;
+        float: none;
+    }
+    footer .options-wrapper li,
+    footer .options-wrapper li a{
+        width: 100%;
+    }
+    footer .options-wrapper .copy {
+        width: 100%;
+        padding-top: 0;
+        float: none;
+    }
 }
 
-@media screen and (max-width : 600px){
-
+@media screen and (max-width : 350px){
+    .button-div .button-title{
+        font-size: 13px;
+    }
+    .button-div .button-subtitle{
+        font-size: 13px;
+    }
 }
 
 @media screen and (max-width : 280px){
-    .contenido{
+    body,
+    footer{
         width: 280px;
-        overflow: hidden;
+        overflow: scroll;
     }
 }

@@ -1,14 +1,14 @@
 ﻿@page
-@model MascotaFeliz.App.Frontend.Pages.EditarDuenoModel
+@model MascotaFeliz.App.Frontend.Pages.EditarVeterinarioModel
 @{
-    int duenoId = Model.dueno.Id;
-    @if (Model.dueno.Id > 0)
+    int veterinarioId = Model.veterinario.Id;
+    @if (Model.veterinario.Id > 0)
     {
-    ViewData["Title"] = "Actualizar Dueño";
+    ViewData["Title"] = "Actualizar Veterinario";
     }
     else
     {
-    ViewData["Title"] = "Añandir Nuevo Dueño";
+    ViewData["Title"] = "Añandir Nuevo Veterinario";
     }
 }
 
@@ -16,28 +16,28 @@
     <div class="contenido">
 
         <div class="title-container">
-            @if (Model.dueno.Id > 0)
+            @if (Model.veterinario.Id > 0)
             {
-            <h1>Actualizar Dueño</h1>
+            <h1>Actualizar Veterinario</h1>
             }
             else
             {
-            <h1>Añadir Nuevo Dueño</h1>
+            <h1>Añadir Nuevo Veterinario</h1>
             }
         </div> 
-        <p class="sub-text" >Los campos marcados con <b>*</b> son obligatorios.</p>
+        <p class="sub-text">Los campos marcados con <b>*</b> son obligatorios.</p>
         <hr>
         <div class="form-container">
             <form method="post">
 
-                @if (Model.dueno != null)
+                @if (Model.veterinario != null)
                 {
                     <div class="details-box">
-                        @if (Model.dueno.Id > 0)
+                        @if (Model.veterinario.Id > 0)
                         {
                             <div class="input-box">
                                 <span class="details">ID*</span>
-                                <input type="text" asp-for="dueno.Id" placeholder="Ingrese su Id" value="@Model.dueno.Id" required readonly>
+                                <input type="text" asp-for="veterinario.Id" placeholder="Ingrese su Id" value="@Model.veterinario.Id" required readonly>
                             </div>
                         }
                         else
@@ -46,32 +46,32 @@
                         
                         <div class="input-box">
                             <span class="details">Nombre*</span>
-                            <input type="text" asp-for="dueno.Nombres" placeholder="Ingrese su nombre" value="@Model.dueno.Nombres" required>
+                            <input type="text" asp-for="veterinario.Nombres" placeholder="Ingrese su nombre" value="@Model.veterinario.Nombres" required>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Apellidos*</span>
-                            <input type="text" asp-for="dueno.Apellidos" placeholder="Ingrese sus apellidos" value="@Model.dueno.Apellidos" required>
+                            <input type="text" asp-for="veterinario.Apellidos" placeholder="Ingrese sus apellidos" value="@Model.veterinario.Apellidos" required>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Cédula*</span>
-                            <input type="text" asp-for="dueno.Cedula" placeholder="Ingrese su número de cédula" value="@Model.dueno.Cedula" required>
+                            <input type="text" asp-for="veterinario.Cedula" placeholder="Ingrese su número de cédula" value="@Model.veterinario.Cedula" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Tarjeta Profesional*</span>
+                            <input type="text" asp-for="veterinario.TarjetaProfesional" placeholder="Ingrese su número de tarjeta profesional" value="@Model.veterinario.TarjetaProfesional" required>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Dirección*</span>
-                            <input type="text" asp-for="dueno.Direccion" placeholder="Ingrese la dirección de su domicilio" value="@Model.dueno.Direccion" required>
+                            <input type="text" asp-for="veterinario.Direccion" placeholder="Ingrese la dirección de su domicilio" value="@Model.veterinario.Direccion" required>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Teléfono*</span>
-                            <input type="number" asp-for="dueno.Telefono" placeholder="Ingrese su número de teléfono" value="@Model.dueno.Telefono" required>
-                        </div>
-
-                        <div class="input-box">
-                            <span class="details">E-mail*</span>
-                            <input type="email" asp-for="dueno.Correo" placeholder="Ingrese su dirección e-mail" value="@Model.dueno.Correo" required>
+                            <input type="number" asp-for="veterinario.Telefono" placeholder="Ingrese su número de teléfono" value="@Model.veterinario.Telefono" required>
                         </div>
                         
 
@@ -86,12 +86,12 @@
 
                     <hr>
                     <div class="button-box">
-                        <a type="button" asp-page="/Duenos/ConsultaDuenos" asp-route-searchTerm="@Model.dueno.Cedula"><i class="arrow-left"></i>Regresar</a>
+                        <a type="button" asp-page="/Veterinarios/ConsultaVeterinarios" asp-route-searchTerm="@Model.veterinario.Cedula"><i class="arrow-left"></i>Regresar</a>
                         <button type="submit" value="Registrar">Registrar<i class="arrow-right"></i></button>
                     </div>
                 }
 
-                @if (Model.dueno == null)
+                @if (Model.veterinario == null)
                 {
                     <div class="empty-box">
                         <h2>Lo sentimos.</h2>
