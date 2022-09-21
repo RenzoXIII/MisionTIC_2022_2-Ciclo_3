@@ -12,7 +12,7 @@ namespace MascotaFeliz.App.Frontend.Pages
 {
     public class ConsultaVeterinariosModel : PageModel
     {
-        private readonly IRepositorioVeterinario _repoVeterinario = new RepositorioVeterinario(new Persistencia.AppContext());
+        private readonly IRepositorioVeterinario _repoVeterinario;
         public IEnumerable<Veterinario> listaVeterinarios {get;set;}
         public IEnumerable<Veterinario> listaVeterinariosFiltrados {get;set;}
 
@@ -20,11 +20,17 @@ namespace MascotaFeliz.App.Frontend.Pages
         [BindProperty(SupportsGet = true)]
         public string searchTerm {get;set;}
 
+        public ConsultaVeterinariosModel()
+        {
+            this._repoVeterinario = new RepositorioVeterinario(new Persistencia.AppContext());
+        }
+
         public void OnGet()
         {
             listaVeterinarios = _repoVeterinario.GetAllVeterinarios();
             listaVeterinariosFiltrados = _repoVeterinario.GetVeterinariosPorFiltro(searchTerm);
         }
         
+
     }
 }

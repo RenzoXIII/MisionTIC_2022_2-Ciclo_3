@@ -1,0 +1,187 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.ConsultaMascotasModel
+@{
+    ViewData["Title"] = "Consulta Mascotas";
+}
+
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>Consultar Mascota</h1>
+    </div> 
+    <hr>
+    <div class="form-container">
+        <form method="get">
+            <div class="details-box">
+
+                <div class="id-box-1">
+                    <span class="details">Buscar Mascota:</span>
+                    <input list="mascotas" type="text" asp-for="searchTerm" placeholder="Ingrese el ID o Nombre de la mascota que desea consultar">
+                    @if (Model.listaMascotas != null)
+                    {
+                        <datalist id="mascotas">
+                        @foreach (var mascota in Model.listaMascotas)
+                        {
+                                <option value="@mascota.Nombre">@mascota.Id</option>
+                        }
+                        </datalist>
+                    }
+                </div>
+
+                <div class="id-box-1">
+                    <span class="details">Filtrar por Dueño:</span>
+                    <input list="duenos" type="text" asp-for="searchDueno" placeholder="Ingrese el ID, Nombre o Cédula del dueno para filtrar">
+                    @if (Model.listaDuenos != null)
+                    {
+                        <datalist id="duenos">
+                        @foreach (var dueno in Model.listaDuenos)
+                        {
+                                <option value="@dueno.Id">@dueno.Nombres @dueno.Apellidos - C.C.: @dueno.Cedula</option>
+                        }
+                        </datalist>
+                    }
+                </div>
+
+                <div class="id-box-1">
+                    <span class="details">Filtrar por Veterinario:</span>
+                    <input list="veterinarios" type="text" asp-for="searchVeterinario" placeholder="Ingrese el ID, Nombre o Cédula del veterinario para filtrar">
+                    @if (Model.listaVeterinarios != null)
+                    {
+                        <datalist id="veterinarios">
+                        @foreach (var veterinario in Model.listaVeterinarios)
+                        {
+                                <option value="@veterinario.Id">@veterinario.Nombres @veterinario.Apellidos - C.C.: @veterinario.Cedula</option>
+                        }
+                        </datalist>
+                    }
+
+                    <button type="submit" class="btn" style="display: none;">Search</button>
+                    
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <div class="form-container">
+        <div class="results-list">
+            @if (Model.listaMascotasFiltrados != null)
+            {
+                @foreach (var mascota in Model.listaMascotasFiltrados)
+                {
+                    <div class="data-box">
+                        <input type="checkbox" id="@mascota.Id">
+                        <label for="@mascota.Id" class="profile-button">
+                            <img class="profile-photo" src="~/Imagenes/Placeholder-photo-dog.jpg" alt="Foto de @mascota.Nombre , mascota">
+                            <div class="button-div">
+                                <p class="button-title">@mascota.Nombre</p>
+                                <p class="button-subtitle">@mascota.Dueno.Nombres @mascota.Dueno.Apellidos</p>
+                               
+                            </div>
+                            <i class="arrow-down-1"></i>
+                        </label>                    
+                        <div class="profile-content">
+                
+
+                            <div class="profile-box">
+        
+                                <div class="info-box">
+                                    <h3>Información básica</h3>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Nombre</span>
+                                        <span class="info-text">@mascota.Nombre</span>
+                                    </div>  
+
+                                    <div class="trait-box">
+                                        <span class="info-title">ID</span>
+                                        <span class="info-text">@mascota.Id</span>
+                                    </div> 
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Color</span>
+                                        <span class="info-text">@mascota.Color</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Especie</span>
+                                        <span class="info-text">@mascota.Especie</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Raza</span>
+                                        <span class="info-text">@mascota.Raza</span>
+                                    </div>
+
+                                </div>
+                                
+                                <div class="info-box">
+
+                                    <h3>Información Dueño</h3>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Dueño</span>
+                                        <span class="info-text">@mascota.Dueno.Nombres @mascota.Dueno.Apellidos</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Cédula Dueño</span>
+                                        <span class="info-text">@mascota.Dueno.Cedula</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-box">
+
+                                    <h3>Información Clínica</h3>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Veterinario</span>
+                                        <span class="info-text">@mascota.Veterinario.Nombres @mascota.Veterinario.Apellidos</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Cédula Veterinario</span>
+                                        <span class="info-text">@mascota.Veterinario.Cedula</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Historia Clínica</span>
+                                        <span class="info-text">@mascota.Historia.Id</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Fecha de Creación</span>
+                                        <span class="info-text">@mascota.Historia.FechaInicial</span>
+                                    </div>
+                                </div>
+
+                                <div class="action-box">
+                                    <a asp-page="/Mascotas/EditarMascota" asp-route-mascotaId="@mascota.Id">Actualizar Datos</a>
+                                    <a asp-page="/Historia/ConsultaHistorias" asp-route-historiaId="">Ver Historia Clínica</a>
+                                    <a asp-page="/Duenos/ConsultaDuenos" asp-route-searchTerm="@mascota.Dueno.Cedula">Ver Dueño</a>
+                                    <a asp-page="/Veterinarios/ConsultaVeterinarios" asp-route-searchTerm="@mascota.Veterinario.Cedula">Ver Veterinario</a>
+
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                }
+            }
+
+
+            @if (Model.listaMascotasFiltrados.Any() == false)
+            {
+                <div class="empty-box">
+                    <h2>Lo sentimos.</h2>
+                    <h3>No se encontró ningún resultado que coincida con esta búsqueda.</h3>
+                </div>
+            }
+            
+        </div>
+        <hr>
+    </div>
+</div>

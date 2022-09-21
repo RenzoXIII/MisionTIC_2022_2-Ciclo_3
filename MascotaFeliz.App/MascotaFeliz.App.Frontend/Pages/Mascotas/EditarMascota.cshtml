@@ -1,0 +1,145 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.EditarMascotaModel
+@{
+    int mascotaId = Model.mascota.Id;
+    @if (Model.mascota.Id > 0)
+    {
+    ViewData["Title"] = "Actualizar Mascota";
+    }
+    else
+    {
+    ViewData["Title"] = "Añandir Nueva Mascota";
+    }
+}
+
+<body>
+    <div class="contenido">
+
+        <div class="title-container">
+            @if (Model.mascota.Id > 0)
+            {
+            <h1>Actualizar Mascota</h1>
+            }
+            else
+            {
+            <h1>Añadir Nueva Mascota</h1>
+            }
+        </div> 
+        <p class="sub-text" >Los campos marcados con <b>*</b> son obligatorios.</p>
+        <hr>
+        <div class="form-container">
+            <form method="post">
+
+                @if (Model.mascota != null)
+                {
+                    <div class="details-box">
+                        @if (Model.mascota.Id > 0)
+                        {
+                            <div class="input-box">
+                                <span class="details">ID*</span>
+                                <input type="text" asp-for="mascota.Id" placeholder="Ingrese su Id" value="@Model.mascota.Id" required readonly>
+                            </div>
+                        }
+                        else
+                        {
+                        }
+                        
+                        <div class="input-box">
+                            <span class="details">Nombre*</span>
+                            <input type="text" asp-for="mascota.Nombre" placeholder="Ingrese el nombre de su mascota" value="@Model.mascota.Nombre" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Color*</span>
+                            <input type="text" asp-for="mascota.Color" placeholder="Ingrese el color de su mascota" value="@Model.mascota.Color" required>
+                        </div>
+
+                        <div class="select-box">
+                            <span class="details">Especie*</span>
+                            <input list="especies" asp-for="mascota.Especie" placeholder="Seleccione la especie de su mascota" value="@Model.mascota.Especie" pattern="^(Perro|Gato|Ave|)$" required>
+                            <datalist id="especies">
+                                <option value="Perro"></option>
+                                <option value="Gato"></option>
+                                <option value="Ave"></option>
+                            </datalist>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Raza*</span>
+                            <input type="text" asp-for="mascota.Raza" placeholder="Seleccione la raza de su mascota" value="@Model.mascota.Raza" required>
+                        </div>
+                    
+                    </div>
+
+                    <div class="details-box">
+                        <div class="select-box">
+                            <span class="details">Dueño*</span>
+                            <select class="form-control" asp-for="mascota.Dueno.Id">
+                                <option value="0">Seleccione el propietario</option>
+                                @foreach (var dueno in Model.listaDuenos)
+                                {
+                                    <option value="@dueno.Id">@dueno.Nombres @dueno.Apellidos - C.C.:@dueno.Cedula</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="select-box">
+                            <span class="details">Veterinario*</span>
+                            <select class="form-control"  asp-for="mascota.Veterinario.Id">
+                                <option value="0">Seleccione el veterinario</option>
+                                @foreach (var veterinario in Model.listaVeterinarios)
+                                {
+                                    <option value="@veterinario.Id">@veterinario.Nombres @veterinario.Apellidos - C.C.:@veterinario.Cedula</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--div class="details-box">
+                        <div class="select-box">
+                            <span class="details">Dueño*</span>
+                            <input list="Duenos" name="Dueno" id="Dueno" placeholder="Seleccione el dueño/a a asignar" pattern="[0-9]{1,}[ ][-][ ][A-z0-9À-ž\s]{0,}" required>
+                            <datalist id="Duenos">
+                                <option value="1 - Renzo Garavito"></option>
+                                <option value="2 - Javier Castiblanco"></option>
+                                <option value="3 - John Campaz"></option>
+                            </datalist>
+                        </div>
+
+                        <div class="select-box">
+                            <span class="details">Veterinario*</span>
+                            <input list="Veterinarios" name="Veterinario" id="Veterinario" placeholder="Seleccione el veterinario/a a asignar" pattern="[0-9]{1,}[ ][-][ ][A-z0-9À-ž\s]{0,}" required>
+                            <datalist id="Veterinarios">
+                                <option value="1 - Renzo Garavito"></option>
+                                <option value="2 - Javier Castiblanco"></option>
+                                <option value="3 - John Campaz"></option>
+                            </datalist>
+                        </div>
+                    </div>
+
+                    <div class="details-box">
+                        <div class="upload-box">
+                            <span class="details">Sube una foto (Opcional)</span>
+                            <input class="uploader" type="file" id="photo" name="Photo" accept="image/*">
+                        </div>
+                    </div-->
+
+                    <hr>
+                    <div class="button-box">
+                        <a type="button" asp-page="/Mascotas/ConsultaMascotas" asp-route-searchTerm="@Model.mascota.Nombre"><i class="arrow-left"></i>Regresar</a>
+                        <button type="submit" value="Registrar">Registrar<i class="arrow-right"></i></button>
+                    </div>
+                }
+
+                @if (Model.mascota == null)
+                {
+                    <div class="empty-box">
+                        <h2>Lo sentimos.</h2>
+                        <h3>No se encontró ningún resultado que coincida con esta búsqueda.</h3>
+                    </div>
+                }
+                
+            </form>
+        </div>
+    </div>
+</body>

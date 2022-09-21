@@ -105,6 +105,7 @@
                                 </div>
 
                                 <div class="action-box">
+                                    
                                     <a asp-page="/Veterinarios/EditarVeterinario" asp-route-veterinarioId="@veterinario.Id">Actualizar Datos</a>
                                     <a asp-page="/Mascotas/ConsultaMascotas" asp-route-veterinarioId="@veterinario.Id">Ver Mascotas</a>
         
@@ -118,7 +119,7 @@
             }
 
 
-            @if (Model.listaVeterinariosFiltrados == null)
+            @if (Model.listaVeterinariosFiltrados.Any() == false)
             {
                 <div class="empty-box">
                     <h2>Lo sentimos.</h2>

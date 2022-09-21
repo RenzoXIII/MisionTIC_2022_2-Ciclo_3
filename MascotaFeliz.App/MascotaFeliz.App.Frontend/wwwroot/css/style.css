@@ -234,7 +234,7 @@ nav input[type=checkbox]:checked ~ label .arrow-down-1{
     font-size: 1em;
     font-weight: 400;
     color: #3D2F2C;
-    margin: 0 0 1vw 0;
+    margin: 0 0 10px 0;
     text-align:left;
 }
 .form-container{
@@ -244,14 +244,14 @@ nav input[type=checkbox]:checked ~ label .arrow-down-1{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0 0 2vw 0;
+    margin: 0 0 20px 0;
 }
 form .details-box .input-box,
 form .details-box .select-box,
 form .details-box .upload-box,
 form .details-box .id-box-2 {
     width: calc(100% / 2 - 2vw);
-    margin-top: 1vw;
+    margin-top: 10px;
 }
 form .details-box .filter-content{
     display:none;
@@ -262,13 +262,13 @@ form .details-box .filter-content{
     border-radius: 0 0 20px 20px;
     align-items: center;
     overflow: hidden;
-    padding: 1vw 2vw;
+    padding: 10px 2vw;
 }
 form .details-box .id-box-1,
 form .details-box .filter-box,
 form .details-box .text-box{
     width: 100%;
-    margin-top: 1vw;
+    margin-top: 10px;
 }
 .details-box .input-box .details,
 .details-box .select-box .details,
@@ -280,11 +280,12 @@ form .details-box .text-box{
     font-weight: 700;
     font-size: 1em;
     color: #3D2F2C;
-    margin-bottom: 0.5vw;
+    margin-bottom: 5px;
     display:block;
 }
 .details-box .input-box input:not(.uploader),
 .details-box .select-box input,
+.details-box .select-box select,
 .details-box .id-box-1 input,
 .details-box .filter-box input,
 .details-box .id-box-2 input{
@@ -325,6 +326,7 @@ form .details-box .text-box{
 }
 .details-box .input-box input:focus,
 .details-box .select-box input:focus,
+.details-box .select-box select:focus,
 .details-box .id-box-1 input:focus,
 .details-box .filter-box input:focus,
 .details-box .id-box-2 input:focus,
@@ -334,6 +336,7 @@ form .details-box .text-box{
 }
 .details-box .input-box input:valid,
 .details-box .select-box input:valid,
+.details-box .select-box select:valid,
 .details-box .id-box-1 input:valid,
 .details-box .filter-box input:valid,
 .details-box .id-box-2 input:valid,
@@ -364,7 +367,7 @@ form .details-box .text-box{
     cursor: pointer;
     user-select: none;
     padding: 0 2vw;
-    margin: 2vw 0 0;
+    margin: 20px 0 0;
 
 
     overflow: hidden;
@@ -451,7 +454,7 @@ form .details-box .text-box{
 .form-container .table-box{
     width: 100%;
     overflow:auto;
-    margin: 2vw 0;
+    margin: 20px 0;
 }
 .form-container .table-box table{
     border-collapse:collapse;
@@ -467,7 +470,7 @@ caption {
     background-color: #3D2F2C;
     color: #F9ECD9;
     text-align: center;
-    padding: 0.5vw 0;
+    padding: 5px 0;
 }
 th {
     font-size: 16px;
@@ -475,12 +478,12 @@ th {
     border: 3px solid #3D2F2C;
     color: #3D2F2C;
     text-align: left;
-    padding: 1vw;  
+    padding: 10px;  
 }
 td {
     border: 3px solid #3D2F2C;
     text-align: left;
-    padding: 1vw;
+    padding: 10px;
 }
 tr:first-child{
     background-color: #3D2F2C;
@@ -496,16 +499,14 @@ tr:nth-child(even) {
 
 
 form .button-box{
-    height: 45px;
-    width: 100%;
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    vertical-align: middle;
     margin-top: 40px;
 }
 form .button-box button{
-    height: 100%;
+    height: 45px;
     width: calc(100% / 2 - 2vw);
     border: none;
     font-size: 1em;
@@ -515,6 +516,7 @@ form .button-box button{
     background-color: #3D2F2C;
     outline: none;
     transition: all 0.3s ease;
+    transition: width 0s;
     cursor: pointer;
 }
 form .button-box button .arrow-right{
@@ -526,7 +528,7 @@ form .button-box button .arrow-right{
     transition: all 0.3s ease;
 }
 form .button-box a{
-    height: 100%;
+    height: 45px;
     width: calc(100% / 2 - 2vw);
     border: none;
     font-size: 1em;
@@ -536,6 +538,7 @@ form .button-box a{
     background-color: #3D2F2C;
     outline: none;
     transition: all 0.3s ease;
+    transition: width 0s;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -580,11 +583,11 @@ form .button-box a:hover > .arrow-left{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0vw 0 2vw 0;
+    margin: 0 0 20px 0;
 }
 .results-list .data-box{
     width: 100%;
-    margin-top: 2vw;
+    margin-top: 20px;
 }
 /*Hide checkbox*/
 .data-box input[type=checkbox]{
@@ -679,17 +682,17 @@ form .button-box a:hover > .arrow-left{
     border-radius: 0 0 20px 20px;
     align-items: center;
     overflow: hidden;
-    padding: 1vw 2vw;
+    padding: 10px 2vw;
 }
 .profile-content .profile-box{
     width: 100%;
     display: block;
-    margin: 0vw;
+    margin: 0;
 }
 .profile-content .profile-box-visita{
     width: 100%;
     display: block;
-    margin: 0vw;
+    margin: 0;
 }
 .profile-box .info-box,
 .profile-box-visita .info-box{
@@ -697,16 +700,16 @@ form .button-box a:hover > .arrow-left{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0vw 0 1.5vw;
+    margin: 0 0 15px;
 }
 
 .info-box .trait-box{
     width: calc(100% / 2 - 2vw);
-    margin: 0vw 0vw 1vw;
+    margin: 0 0 1opx;
 }
 .info-box .text-box-2{
     width: 100%;
-    margin: 0vw 0vw 1vw;
+    margin: 0 0 10px;
 }
 .trait-box .info-title,
 .text-box-2 .info-title{
@@ -714,7 +717,7 @@ form .button-box a:hover > .arrow-left{
     font-size: 1em;
     color: #3D2F2C;
     display:block;
-    margin-bottom: 0.5vw;
+    margin-bottom: 5px;
 }
 .trait-box .info-text{
     display: block;
@@ -766,7 +769,7 @@ form .button-box a:hover > .arrow-left{
 .profile-box .action-box a,
 .profile-box-visita .action-box a{
     width: 100%;
-    margin: 0vw 0vw 1vw;
+    margin: 0 0 10px;
     height: 45px;
     font-size: 1em;
     display: flex;
@@ -793,7 +796,7 @@ form .button-box a:hover > .arrow-left{
 .contenido .empty-box{
     width: 100%;
     padding: 2vw;
-    margin: 2vw 0;
+    margin: 20px 0;
 }
 .contenido .empty-box h2{
     font-size: 2em;
@@ -939,16 +942,25 @@ footer .logo-wrapper .svg-logo{
     form .details-box .id-box-2,
     form .details-box .text-box{
         width: 100%;
-        margin-top: 2vw;
+        margin-top: 20px;
     }
     .profile-content .profile-box,
     .profile-content .profile-box-visita{
         width: 98%;
         margin: auto;
-        margin-bottom: 3.5vw;
+        margin-bottom: 35px;
     }
     .results-list .data-box{
         width: 100%;
+    }
+    
+
+    form .button-box button{
+        width: 100%;
+    }
+    form .button-box a{
+        width: 100%;
+        margin-bottom: 20px;
     }
     /*.profile-photo{
         display: inline;
@@ -961,7 +973,7 @@ footer .logo-wrapper .svg-logo{
     }*/
     .info-box .trait-box{
         width: 100%;
-        margin: 0 0 2vw;
+        margin: 0 0 20px;
     }
     .data-box input[type=checkbox]:checked ~ .profile-content{
         display:block;
@@ -969,7 +981,7 @@ footer .logo-wrapper .svg-logo{
     .profile-box .action-box a,
     .profile-box-visita .action-box a{
         width: 100%;
-        margin: 3vw 0vw 0vw;
+        margin: 30px 0 0;
     }
     footer {
         height: auto;
@@ -1013,6 +1025,10 @@ footer .logo-wrapper .svg-logo{
         padding-top: 0;
         float: none;
     }
+}
+
+@media screen and (max-width : 750px){
+    
 }
 
 @media screen and (max-width : 350px){

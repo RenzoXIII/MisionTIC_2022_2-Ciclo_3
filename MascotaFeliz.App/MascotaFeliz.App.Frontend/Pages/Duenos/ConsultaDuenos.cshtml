@@ -98,7 +98,7 @@
                                     </div>
 
                                     <div class="trait-box">
-                                        <span class="info-title">E-mali</span>
+                                        <span class="info-title">E-mail</span>
                                         <span class="info-text">@dueno.Correo</span>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
             }
 
 
-            @if (Model.listaDuenosFiltrados == null)
+            @if (Model.listaDuenosFiltrados.Any() == false)
             {
                 <div class="empty-box">
                     <h2>Lo sentimos.</h2>

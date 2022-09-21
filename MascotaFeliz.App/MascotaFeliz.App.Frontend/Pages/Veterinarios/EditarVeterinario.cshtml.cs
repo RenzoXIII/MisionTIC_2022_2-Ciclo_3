@@ -22,7 +22,7 @@ namespace MascotaFeliz.App.Frontend.Pages
             this._repoVeterinario = new RepositorioVeterinario(new Persistencia.AppContext());
         }
 
-         public IActionResult OnGet(int? veterinarioId)
+        public IActionResult OnGet(int? veterinarioId)
         {
             if (veterinarioId.HasValue)
             {
@@ -57,7 +57,8 @@ namespace MascotaFeliz.App.Frontend.Pages
                 _repoVeterinario.AddVeterinario(veterinario);
             }
 
-            return Page();
+            return RedirectToPage("/Veterinarios/ConsultaVeterinarios");
+           // return Page();
         }
     }
 }
