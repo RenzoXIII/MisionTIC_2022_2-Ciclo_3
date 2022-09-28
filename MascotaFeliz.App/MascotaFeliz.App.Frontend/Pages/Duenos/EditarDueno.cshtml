@@ -32,18 +32,20 @@
 
                 @if (Model.dueno != null)
                 {
-                    <div class="details-box">
                         @if (Model.dueno.Id > 0)
                         {
-                            <div class="input-box">
+                        <div class="details-box">
+                            <div class="input-box-2">
                                 <span class="details">ID*</span>
                                 <input type="text" asp-for="dueno.Id" placeholder="Ingrese su Id" value="@Model.dueno.Id" required readonly>
                             </div>
+                        </div>
                         }
                         else
                         {
                         }
-                        
+
+                    <div class="details-box">
                         <div class="input-box">
                             <span class="details">Nombre*</span>
                             <input type="text" asp-for="dueno.Nombres" placeholder="Ingrese su nombre" value="@Model.dueno.Nombres" required>

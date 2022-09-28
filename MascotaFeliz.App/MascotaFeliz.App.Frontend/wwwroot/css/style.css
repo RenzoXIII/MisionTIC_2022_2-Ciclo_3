@@ -210,7 +210,7 @@ nav input[type=checkbox]:checked ~ label .arrow-down-1{
 
 
 .contenido{
-    padding: 30px 6vw 40px;
+    padding: 20px 8vw 40px;
 }
 .title-container{
     display: block;
@@ -236,6 +236,11 @@ nav input[type=checkbox]:checked ~ label .arrow-down-1{
     color: #3D2F2C;
     margin: 0 0 10px 0;
     text-align:left;
+}
+.contenido .profile-box-top{
+    width: 100%;
+    display: block;
+    margin: 15px 0 0;
 }
 .form-container{
     margin: 0;
@@ -264,6 +269,7 @@ form .details-box .filter-content{
     overflow: hidden;
     padding: 10px 2vw;
 }
+form .details-box .input-box-2,
 form .details-box .id-box-1,
 form .details-box .filter-box,
 form .details-box .text-box{
@@ -271,6 +277,7 @@ form .details-box .text-box{
     margin-top: 10px;
 }
 .details-box .input-box .details,
+.details-box .input-box-2 .details,
 .details-box .select-box .details,
 .details-box .upload-box .details,
 .details-box .text-box .details,
@@ -284,6 +291,7 @@ form .details-box .text-box{
     display:block;
 }
 .details-box .input-box input:not(.uploader),
+.details-box .input-box-2 input,
 .details-box .select-box input,
 .details-box .select-box select,
 .details-box .id-box-1 input,
@@ -300,7 +308,8 @@ form .details-box .text-box{
     padding-right: 20px;
     transition: all 0.3s ease;
 }
-.details-box .input-box input:not(.uploader):read-only{
+.details-box .input-box input:not(.uploader):read-only,
+.details-box .input-box-2 input:not(.uploader):read-only{
     color: black;
     height: 45px;
     width: 100%;
@@ -325,6 +334,7 @@ form .details-box .text-box{
     transition: all 0.3s ease;
 }
 .details-box .input-box input:focus,
+.details-box .input-box-2 input:focus,
 .details-box .select-box input:focus,
 .details-box .select-box select:focus,
 .details-box .id-box-1 input:focus,
@@ -335,6 +345,7 @@ form .details-box .text-box{
     color: black;
 }
 .details-box .input-box input:valid,
+.details-box .input-box-2 input:valid,
 .details-box .select-box input:valid,
 .details-box .select-box select:valid,
 .details-box .id-box-1 input:valid,
@@ -495,17 +506,91 @@ tr:nth-child(even) {
     background-color: #e9cea6;
 }
 
+.flex-contenido{
+    height: 611px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 10px 0px #3D2F2C;
+}
+.flex-contenido-2{
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 10px 0px #3D2F2C;
+}
+.flex-column-1{
+    position: relative;
+    flex-basis: 40%;
+}
+.flex-column-2{
+    position: relative;
+    flex-basis: 60%;
+}
+.flex-column-3{
+    position: relative;
+    flex-basis: calc(100% / 3);
+    width: calc(100% / 3);
+}
+.bg-image-1{
+    position: absolute;
+    transform-origin: bottom;
+    bottom: -11px;
+    right: 0px;
+    width: 917px;
+}
+.contenido-a{
+    height: auto;
+    overflow: hidden;
+    padding: 40px 8vw 40px;
+    text-align: center;
+    caret-color: transparent;
+}
+.contenido-b{
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    padding: 60px 8vw 20px;
+    text-align: center;
+    caret-color: transparent;
+}
+.contenido-a h1{
+    font-size: 12em;
+    font-weight: 700;
+    color: #02AD9D;
+    margin: 0px;
+    line-height: 150px;
+}
+.contenido-a h2{
+    font-size: 3.2em;
+    font-weight: 700;
+    color: #02AD9D;
+    margin: 0px;
+    line-height: auto;
+}
+.contenido-a h3{
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #3D2F2C;
+    margin: 0px;
+    line-height: auto;
+}
+.contenido-b h1{
+    font-size: 13vw;
+    font-weight: 700;
+    color: #02AD9D;
+    margin: 0px;
+    line-height: auto;
+}
 
 
-
-form .button-box{
+.button-box{
     
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 40px;
+    margin: 20px 0;
 }
-form .button-box button{
+.button-box button{
     height: 45px;
     width: calc(100% / 2 - 2vw);
     border: none;
@@ -519,7 +604,8 @@ form .button-box button{
     transition: width 0s;
     cursor: pointer;
 }
-form .button-box button .arrow-right{
+.button-box button .arrow-right,
+.button-box a .arrow-right{
     border: solid #F9ECD9;
     border-width: 0px 3px 3px 0px;
     display: inline-block;
@@ -527,7 +613,7 @@ form .button-box button .arrow-right{
     transform: translate(3px, 0) rotate(-45deg);
     transition: all 0.3s ease;
 }
-form .button-box a{
+.button-box a{
     height: 45px;
     width: calc(100% / 2 - 2vw);
     border: none;
@@ -547,7 +633,7 @@ form .button-box a{
     user-select: none;
     text-decoration: none;
 }
-form .button-box a .arrow-left{
+.button-box a .arrow-left{
     border: solid #F9ECD9;
     border-width: 0px 3px 3px 0px;
     display: inline-block;
@@ -555,24 +641,28 @@ form .button-box a .arrow-left{
     transform: translate(-3px, 0) rotate(135deg);
     transition: all 0.3s ease;
 }
-form .button-box button:hover{
+.button-box button:hover{
     color: #F9ECD9;
     background-color: #FC6F42;
     box-shadow: inset 0px 0px 0 15px #FC6F42;
     transition: all 0.3s ease;
 }
-form .button-box a:hover{
+.button-box a:hover{
     color: #F9ECD9;
     background-color: #FC6F42;
     box-shadow: inset 0px 0px 0 15px #FC6F42;
     transition: all 0.3s ease;
 }
-form .button-box button:hover > .arrow-right{
+.button-box button:hover > .arrow-right{
     transform: translate(7px, 0) rotate(-45deg);
     transition: all 0.3s ease;
 }
-form .button-box a:hover > .arrow-left{
+.button-box a:hover > .arrow-left{
     transform: translate(-7px, 0) rotate(135deg);
+    transition: all 0.3s ease;
+}
+.button-box a:hover > .arrow-right{
+    transform: translate(7px, 0) rotate(-45deg);
     transition: all 0.3s ease;
 }
 
@@ -609,7 +699,7 @@ form .button-box a:hover > .arrow-left{
     transition: all 0.3s ease;
     cursor: pointer;
     user-select: none;
-    padding: 0 2vw 0 10px;
+    padding: 0 2vw 0 calc(2vw + 3px);
     margin: 0;
 
     text-align:left;
@@ -695,17 +785,18 @@ form .button-box a:hover > .arrow-left{
     margin: 0;
 }
 .profile-box .info-box,
+.profile-box-top .info-box,
 .profile-box-visita .info-box{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0 0 15px;
+    margin: 0 0 20px;
 }
 
 .info-box .trait-box{
     width: calc(100% / 2 - 2vw);
-    margin: 0 0 1opx;
+    margin: 0 0 10px;
 }
 .info-box .text-box-2{
     width: 100%;
@@ -750,6 +841,7 @@ form .button-box a:hover > .arrow-left{
     transition: all 0.3s ease;
 }
 .profile-box-visita h3,
+.profile-box-top h3,
 .profile-box h3{
     font-size: 1.5em;
     font-weight: 700;
@@ -759,6 +851,7 @@ form .button-box a:hover > .arrow-left{
     text-align:left;
 }
 .profile-box .action-box,
+.profile-box-top .action-box,
 .profile-box-visita .action-box{
     width: 100%;
     display: flex;
@@ -767,9 +860,10 @@ form .button-box a:hover > .arrow-left{
     margin: 0;
 }
 .profile-box .action-box a,
+.profile-box-top .action-box a,
 .profile-box-visita .action-box a{
-    width: 100%;
-    margin: 0 0 10px;
+    width: calc(100% / 2 - 2vw);
+    margin: 15px 0;
     height: 45px;
     font-size: 1em;
     display: flex;
@@ -782,11 +876,13 @@ form .button-box a:hover > .arrow-left{
     background-color: #3D2F2C;
     outline: none;
     transition: all 0.3s ease;
+    transition: width 0s;
     cursor: pointer;
     user-select: none;
     text-decoration: none;
 }
 .profile-box .action-box a:hover,
+.profile-box-top .action-box a:hover,
 .profile-box-visita .action-box a:hover{
     background-color: #FC6F42;
     transition: all 0.3s ease;
@@ -795,7 +891,7 @@ form .button-box a:hover > .arrow-left{
 
 .contenido .empty-box{
     width: 100%;
-    padding: 2vw;
+    padding: 0 20px;
     margin: 20px 0;
 }
 .contenido .empty-box h2{
@@ -811,6 +907,15 @@ form .button-box a:hover > .arrow-left{
     color: #3D2F2C;
     margin: 0px;
     text-align:left;
+}
+.contenido .empty-box p{
+    font-size: 16px;
+    text-align:left;
+    color: #3D2F2C;
+}
+.contenido .empty-box .contact-box{
+    width: 100%;
+    margin: 0;
 }
 
 
@@ -931,18 +1036,22 @@ footer .logo-wrapper .svg-logo{
     }
 
     .contenido h1{
-        font-size: 1.5em;
+        font-size: 2em;
     }
     .contenido .sub-text{
         font-size: 13px;
     }
     form .details-box .input-box,
+    form .details-box .input-box-2,
     form .details-box .select-box,
     form .details-box .upload-box,
     form .details-box .id-box-2,
     form .details-box .text-box{
         width: 100%;
-        margin-top: 20px;
+        margin-top: 10px;
+    }
+    .results-list .data-box .profile-button {
+        padding: 0 calc(2vw + 2%) 0 calc(2vw + 3px + 2%);
     }
     .profile-content .profile-box,
     .profile-content .profile-box-visita{
@@ -954,13 +1063,18 @@ footer .logo-wrapper .svg-logo{
         width: 100%;
     }
     
-
-    form .button-box button{
+    .button-box{
+        margin: 20px 0 0;
+    }
+    .button-box button{
         width: 100%;
     }
-    form .button-box a{
+    .button-box a{
         width: 100%;
         margin-bottom: 20px;
+    }
+    .contenido .empty-box h2{
+        font-size: 1.5em;
     }
     /*.profile-photo{
         display: inline;
@@ -971,6 +1085,56 @@ footer .logo-wrapper .svg-logo{
         border-radius: 20px;
         margin: 15px 0 15px 15px;
     }*/
+
+    .contenido-b{
+        height: auto;
+        overflow: hidden;
+        padding: 40px 8vw 40px;
+        text-align: center;
+    }
+    .contenido-a h1{
+        font-size: 20vw;
+        font-weight: 700;
+        color: #02AD9D;
+        margin: 0px;
+        line-height: 20vw;
+    }
+    .contenido-a h2{
+        font-size: 5.5vw;
+        font-weight: 700;
+        color: #02AD9D;
+        margin: 0px;
+        line-height: 5.5vw;
+    }
+    .contenido-a h3{
+        font-size: 1em;
+        font-weight: 500;
+        color: #3D2F2C;
+        margin: 0px;
+        line-height: 1em;
+    }
+    .contenido-b h1{
+        font-size: 13vw;
+        line-height: 13vw;
+    }
+
+    .flex-contenido{
+        display: block;
+        height: auto;
+    }
+    .flex-contenido-2{
+        display: block;
+        height: auto;
+    }
+    .flex-column-1{
+        display: none;
+    }
+    .flex-column-3{
+        position: relative;
+        flex-basis: 100%;
+        width: 100%;
+    }
+
     .info-box .trait-box{
         width: 100%;
         margin: 0 0 20px;
@@ -979,9 +1143,10 @@ footer .logo-wrapper .svg-logo{
         display:block;
     }
     .profile-box .action-box a,
+    .profile-box-top .action-box a,
     .profile-box-visita .action-box a{
         width: 100%;
-        margin: 30px 0 0;
+        margin: 15px 0;
     }
     footer {
         height: auto;
@@ -1027,8 +1192,7 @@ footer .logo-wrapper .svg-logo{
     }
 }
 
-@media screen and (max-width : 750px){
-    
+@media screen and (max-width : 550px){
 }
 
 @media screen and (max-width : 350px){
@@ -1037,6 +1201,13 @@ footer .logo-wrapper .svg-logo{
     }
     .button-div .button-subtitle{
         font-size: 13px;
+    }
+    .contenido-b h1{
+        font-size: 2.7em;
+        font-weight: 700;
+        color: #02AD9D;
+        margin: 0px;
+        line-height: auto;
     }
 }
 

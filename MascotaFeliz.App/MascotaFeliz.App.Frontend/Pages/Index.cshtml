@@ -1,10 +1,63 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Inicio";
 }
+<div class="flex-contenido">
+    <div class="flex-column-1">
+            <img class="bg-image-1" src="~/Imagenes/Background-image-1.png" alt="">
+    </div>
+    <div class="flex-column-2">
+        
+        
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <div class="contenido-a">
+            <h1>Pawmi</h1>
+            <h2>¡Veterinario en su hogar!</h2>
+            <br>
+            <h3>Por favor, seleccione una de las siguientes opciones:</h3>
+            <br>
+            <div class="button-box">
+                <a type="button" href="#S1" style="width: 100%; margin-bottom: 20px;">Veterinarios<i class="arrow-right"></i></a>
+                <a type="button" href="#S3" style="width: 100%; margin-bottom: 20px;">Mascotas<i class="arrow-right"></i></a>
+                <a type="button" href="#S2" style="width: 100%; margin-bottom: 20px;">Dueños<i class="arrow-right"></i></a>
+            </div>
+        </div>  
+    </div>
 </div>
+
+
+<div class="flex-contenido-2" style="background-color: #02AD9D;" id="S1">
+        <div class="contenido-b">
+            <h1 style="color: #F9ECD9;">Veterinarios</h1>
+            <br>
+            <div class="button-box">
+                <a type="button" asp-page="/Veterinarios/ConsultaVeterinarios" style="width: 100%; margin-bottom: 20px;">Consultar Veterinarios<i class="arrow-right"></i></a>
+                <a type="button" asp-page="/Veterinarios/EditarVeterinario" style="width: 100%; margin-bottom: 20px;">Añadir Nuevo Veterinario<i class="arrow-right"></i></a>
+            </div>
+        </div>  
+</div>
+
+<div class="flex-contenido-2" style="background-color: #FAC43D;" id="S3">
+        <div class="contenido-b">
+            <h1 style="color: #FC6F42;">Mascotas</h1>
+            <br>
+            <div class="button-box" >
+                <a type="button" asp-page="/Mascotas/ConsultaMascotas" style="width: 100%; margin-bottom: 20px;">Consultar Mascotas<i class="arrow-right"></i></a>
+                <a type="button" asp-page="/Mascotas/EditarMascota" style="width: 100%; margin-bottom: 20px;">Añadir Nueva Mascota<i class="arrow-right"></i></a>
+            </div>
+        </div>  
+</div>
+
+
+<div class="flex-contenido-2" style="background-color: #b79087;" id="S2">
+        <div class="contenido-b">
+            <h1 style="color: #3D2F2C;">Dueños</h1>
+            <br>
+            <div class="button-box">
+                <a type="button" asp-page="/Duenos/ConsultaDuenos" style="width: 100%; margin-bottom: 20px;">Consultar Dueños<i class="arrow-right"></i></a>
+                <a type="button" asp-page="/Duenos/EditarDueno" style="width: 100%; margin-bottom: 20px;">Añadir Nuevo Dueño<i class="arrow-right"></i></a>
+            </div>
+        </div>  
+</div>
+

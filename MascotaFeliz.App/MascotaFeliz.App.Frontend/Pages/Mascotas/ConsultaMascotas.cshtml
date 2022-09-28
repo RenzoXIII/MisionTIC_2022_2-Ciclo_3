@@ -16,13 +16,13 @@
 
                 <div class="id-box-1">
                     <span class="details">Buscar Mascota:</span>
-                    <input list="mascotas" type="text" asp-for="searchTerm" placeholder="Ingrese el ID o Nombre de la mascota que desea consultar">
+                    <input list="mascotas" type="text" asp-for="searchTerm" placeholder="Ingrese el Nombre de la mascota que desea consultar">
                     @if (Model.listaMascotas != null)
                     {
                         <datalist id="mascotas">
                         @foreach (var mascota in Model.listaMascotas)
                         {
-                                <option value="@mascota.Nombre">@mascota.Id</option>
+                                <option value="@mascota.Nombre">ID: @mascota.Id</option>
                         }
                         </datalist>
                     }
@@ -30,13 +30,13 @@
 
                 <div class="id-box-1">
                     <span class="details">Filtrar por Dueño:</span>
-                    <input list="duenos" type="text" asp-for="searchDueno" placeholder="Ingrese el ID, Nombre o Cédula del dueno para filtrar">
+                    <input list="duenos" type="text" asp-for="searchDueno" placeholder="Ingrese el Nombre o la Cédula del dueno para filtrar">
                     @if (Model.listaDuenos != null)
                     {
                         <datalist id="duenos">
                         @foreach (var dueno in Model.listaDuenos)
                         {
-                                <option value="@dueno.Id">@dueno.Nombres @dueno.Apellidos - C.C.: @dueno.Cedula</option>
+                                <option value="@dueno.Nombres @dueno.Apellidos">C.C.: @dueno.Cedula</option>
                         }
                         </datalist>
                     }
@@ -44,13 +44,13 @@
 
                 <div class="id-box-1">
                     <span class="details">Filtrar por Veterinario:</span>
-                    <input list="veterinarios" type="text" asp-for="searchVeterinario" placeholder="Ingrese el ID, Nombre o Cédula del veterinario para filtrar">
+                    <input list="veterinarios" type="text" asp-for="searchVeterinario" placeholder="Ingrese Nombre o la Cédula del veterinario para filtrar">
                     @if (Model.listaVeterinarios != null)
                     {
                         <datalist id="veterinarios">
                         @foreach (var veterinario in Model.listaVeterinarios)
                         {
-                                <option value="@veterinario.Id">@veterinario.Nombres @veterinario.Apellidos - C.C.: @veterinario.Cedula</option>
+                                <option value="@veterinario.Nombres @veterinario.Apellidos">C.C.: @veterinario.Cedula</option>
                         }
                         </datalist>
                     }
@@ -64,6 +64,12 @@
     </div>
 
     <hr>
+        <div class="button-box">
+            <a type="button" asp-page="/Index"><i class="arrow-left"></i>Regresar</a>
+            <a type="button" asp-page="/Mascotas/EditarMascota">Añadir Nueva Mascota<i class="arrow-right"></i></a>
+        </div>
+
+    <hr>
 
     <div class="form-container">
         <div class="results-list">
@@ -74,7 +80,26 @@
                     <div class="data-box">
                         <input type="checkbox" id="@mascota.Id">
                         <label for="@mascota.Id" class="profile-button">
-                            <img class="profile-photo" src="~/Imagenes/Placeholder-photo-dog.jpg" alt="Foto de @mascota.Nombre , mascota">
+                            @if (mascota.Especie == "Perro")
+                            {
+                            <img class="profile-photo" src="~/Imagenes/P-Perro.png" alt="Foto de @mascota.Nombre , mascota">
+                            }
+                            @if (mascota.Especie == "Gato")
+                            {
+                            <img class="profile-photo" src="~/Imagenes/P-Gato.png" alt="Foto de @mascota.Nombre , mascota">
+                            }
+                            @if (mascota.Especie == "Roedor")
+                            {
+                            <img class="profile-photo" src="~/Imagenes/P-Roedor.png" alt="Foto de @mascota.Nombre , mascota">
+                            }
+                            @if (mascota.Especie == "Ave")
+                            {
+                            <img class="profile-photo" src="~/Imagenes/P-Ave.png" alt="Foto de @mascota.Nombre , mascota">
+                            }
+                            @if (mascota.Especie == "Reptil")
+                            {
+                            <img class="profile-photo" src="~/Imagenes/P-Reptil.png" alt="Foto de @mascota.Nombre , mascota">
+                            }
                             <div class="button-div">
                                 <p class="button-title">@mascota.Nombre</p>
                                 <p class="button-subtitle">@mascota.Dueno.Nombres @mascota.Dueno.Apellidos</p>
@@ -96,7 +121,7 @@
                                     </div>  
 
                                     <div class="trait-box">
-                                        <span class="info-title">ID</span>
+                                        <span class="info-title">ID Mascota</span>
                                         <span class="info-text">@mascota.Id</span>
                                     </div> 
 
@@ -127,14 +152,35 @@
                                     </div>
 
                                     <div class="trait-box">
-                                        <span class="info-title">Cédula Dueño</span>
+                                        <span class="info-title">Cédula</span>
                                         <span class="info-text">@mascota.Dueno.Cedula</span>
                                     </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">ID Dueño</span>
+                                        <span class="info-text">@mascota.Dueno.Id</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Dirección</span>
+                                        <span class="info-text">@mascota.Dueno.Direccion</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Teléfono</span>
+                                        <span class="info-text">@mascota.Dueno.Telefono</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">E-mail</span>
+                                        <span class="info-text">@mascota.Dueno.Correo</span>
+                                    </div>
+                                
                                 </div>
 
                                 <div class="info-box">
 
-                                    <h3>Información Clínica</h3>
+                                    <h3>Información Veterinario</h3>
 
                                     <div class="trait-box">
                                         <span class="info-title">Veterinario</span>
@@ -142,9 +188,24 @@
                                     </div>
 
                                     <div class="trait-box">
-                                        <span class="info-title">Cédula Veterinario</span>
+                                        <span class="info-title">Cédula </span>
                                         <span class="info-text">@mascota.Veterinario.Cedula</span>
                                     </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">ID Veterinario</span>
+                                        <span class="info-text">@mascota.Veterinario.Id</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Tarjeta Profesional</span>
+                                        <span class="info-text">@mascota.Veterinario.TarjetaProfesional</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-box">
+
+                                    <h3>Información Clínica</h3>
 
                                     <div class="trait-box">
                                         <span class="info-title">Historia Clínica</span>
@@ -159,7 +220,8 @@
 
                                 <div class="action-box">
                                     <a asp-page="/Mascotas/EditarMascota" asp-route-mascotaId="@mascota.Id">Actualizar Datos</a>
-                                    <a asp-page="/Historia/ConsultaHistorias" asp-route-historiaId="">Ver Historia Clínica</a>
+                                    <a asp-page="/Historias/ConsultaVisitas" asp-route-mascotaId="@mascota.Id">Ver Historia Clínica</a>
+                                    <a asp-page="/Historias/EditarVisita" asp-route-mascotaId="@mascota.Id">Añadir Nueva Visita PyP</a>
                                     <a asp-page="/Duenos/ConsultaDuenos" asp-route-searchTerm="@mascota.Dueno.Cedula">Ver Dueño</a>
                                     <a asp-page="/Veterinarios/ConsultaVeterinarios" asp-route-searchTerm="@mascota.Veterinario.Cedula">Ver Veterinario</a>
 
@@ -182,6 +244,5 @@
             }
             
         </div>
-        <hr>
     </div>
 </div>

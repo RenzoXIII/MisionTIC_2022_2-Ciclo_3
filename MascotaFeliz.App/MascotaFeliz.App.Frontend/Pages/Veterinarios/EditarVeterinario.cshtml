@@ -32,18 +32,20 @@
 
                 @if (Model.veterinario != null)
                 {
-                    <div class="details-box">
                         @if (Model.veterinario.Id > 0)
                         {
-                            <div class="input-box">
+                        <div class="details-box">
+                            <div class="input-box-2">
                                 <span class="details">ID*</span>
                                 <input type="text" asp-for="veterinario.Id" placeholder="Ingrese su Id" value="@Model.veterinario.Id" required readonly>
                             </div>
+                        </div>
                         }
                         else
                         {
                         }
-                        
+
+                    <div class="details-box">
                         <div class="input-box">
                             <span class="details">Nombre*</span>
                             <input type="text" asp-for="veterinario.Nombres" placeholder="Ingrese su nombre" value="@Model.veterinario.Nombres" required>

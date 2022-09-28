@@ -11,6 +11,7 @@ namespace MascotaFeliz.App.Consola
         private static IRepositorioVeterinario _repoVeterinario = new RepositorioVeterinario(new Persistencia.AppContext());
         private static IRepositorioMascota _repoMascota = new RepositorioMascota(new Persistencia.AppContext());
         private static IRepositorioHistoria _repoHistoria = new RepositorioHistoria(new Persistencia.AppContext());
+        private static IRepositorioVisitaPyP _repoVisita = new RepositorioVisitaPyP(new Persistencia.AppContext());
 
 
         static void Main(string[] args)
@@ -35,7 +36,8 @@ namespace MascotaFeliz.App.Consola
             //AsignarHistoria();
 
             //BuscarMascota(1);
-            _repoMascota.DeleteMascota(12);
+            //_repoMascota.DeleteMascota(12);
+            _repoVisita.DeleteVisitaPyP(4);
         }
 
         //----Add Methods----

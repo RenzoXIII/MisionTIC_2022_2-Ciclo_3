@@ -16,7 +16,7 @@
 
                 <div class="id-box-1">
                     <span class="details">Buscar Dueño:</span>
-                    <input list="duenos" type="text" asp-for="searchTerm" placeholder="Ingrese el ID, Nombre o Cédula del dueño que desea consultar">
+                    <input list="duenos" type="text" asp-for="searchTerm" placeholder="Ingrese el Nombre o la Cédula del dueño que desea consultar">
                     @if (Model.listaDuenos != null)
                     {
                         <datalist id="duenos">
@@ -36,6 +36,12 @@
     </div>
 
     <hr>
+        <div class="button-box">
+            <a type="button" asp-page="/Index"><i class="arrow-left"></i>Regresar</a>
+            <a type="button" asp-page="/Duenos/EditarDueno">Añadir Nuevo Dueño<i class="arrow-right"></i></a>
+        </div>
+        
+    <hr>
 
     <div class="form-container">
         <div class="results-list">
@@ -46,7 +52,7 @@
                     <div class="data-box">
                         <input type="checkbox" id="@dueno.Id">
                         <label for="@dueno.Id" class="profile-button">
-                            <img class="profile-photo" src="~/Imagenes/Placeholder-photo-dueno-h.jpg" alt="Foto de perfil de @dueno.Nombres @dueno.Apellidos">
+                            <img class="profile-photo" src="~/Imagenes/P-Persona.png" alt="Foto de perfil de @dueno.Nombres @dueno.Apellidos">
                             <div class="button-div">
                                 <p class="button-title">@dueno.Nombres @dueno.Apellidos</p>
                                 <p class="button-subtitle">C.C.: @dueno.Cedula</p>
@@ -105,7 +111,7 @@
 
                                 <div class="action-box">
                                     <a asp-page="/Duenos/EditarDueno" asp-route-duenoId="@dueno.Id">Actualizar Datos</a>
-                                    <a asp-page="/Mascotas/ConsultaMascotas" asp-route-duenoId="@dueno.Id">Ver Mascotas</a>
+                                    <a asp-page="/Mascotas/ConsultaMascotas" asp-route-searchDueno="@dueno.Id">Ver Mascotas</a>
         
                                 </div>
 
@@ -126,6 +132,5 @@
             }
             
         </div>
-        <hr>
     </div>
 </div>

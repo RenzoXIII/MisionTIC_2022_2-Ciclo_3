@@ -1,0 +1,252 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.ConsultaVisitasModel
+@{
+    int mascotaId = Model.mascota.Id;
+    ViewData["Title"] = "Historia Clínica";
+}
+
+<div class="contenido">
+
+    <div class="title-container">
+        <h1>Historia Clínica</h1>
+    </div> 
+    <hr>
+    <div class="profile-box-top">
+
+        <div class="info-box">
+
+            <div class="trait-box">
+                <span class="info-title">ID Historia</span>
+                <span class="info-text">@Model.mascota.Historia.Id</span>
+            </div>
+
+            <div class="trait-box">
+                <span class="info-title">Fecha de Creación</span>
+                <span class="info-text">@Model.mascota.Historia.FechaInicial</span>
+            </div>
+
+            <div class="trait-box">
+                <span class="info-title">Mascota</span>
+                <span class="info-text">@Model.mascota.Nombre</span>
+            </div>
+
+            <div class="trait-box">
+                <span class="info-title">ID Mascota</span>
+                <span class="info-text">@Model.mascota.Id</span>
+            </div>
+
+            <div class="trait-box">
+                <span class="info-title">Dueño</span>
+                <span class="info-text">@Model.mascota.Dueno.Nombres @Model.mascota.Dueno.Apellidos</span>
+            </div>
+
+            <div class="trait-box">
+                <span class="info-title">Cédula Dueño</span>
+                <span class="info-text">@Model.mascota.Dueno.Cedula</span>
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+        <div class="button-box">
+            <a asp-page="/Mascotas/ConsultaMascotas" asp-route-searchTerm="@Model.mascota.Nombre"><i class="arrow-left"></i>Regresar</a>
+            <a asp-page="/Historias/EditarVisita" asp-route-mascotaId="@Model.mascota.Id">Añadir Nueva Visita PyP<i class="arrow-right"></i></a>
+        </div>
+        
+    <hr>
+
+    <div class="form-container">
+        <div class="results-list">
+            @if (Model.mascota.Historia.VisitasPyP != null)
+            {
+                int x = Model.mascota.Historia.VisitasPyP.Count; 
+                @foreach (var visita in Model.listaVisitas.Reverse())
+                //@for(int i = Model.mascota.Historia.VisitasPyP.Count -1; i >= 0; --i)
+                {
+                    //var visita = Model.mascota.Historia.VisitasPyP[i];
+                    var veterinarioEncontrado = Model._repoVeterinario.GetVeterinario(visita.IdVeterinario);
+                    <div class="data-box">
+                        <input type="checkbox" id="@visita.Id">
+                        <label for="@visita.Id" class="profile-button">
+                            <div class="button-div">
+                                <p class="button-title">Visita N° @(x) - @visita.FechaVisita</p>
+                                <p class="button-subtitle">ID: @visita.Id</p>
+                               
+                            </div>
+                            <i class="arrow-down-1"></i>
+                        </label>  
+                                         
+                        <div class="profile-content">
+                
+
+                            <div class="profile-box-visita">
+                                
+                                <div class="info-box">
+
+                                    <h3>Información básica</h3>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Fecha de la visita</span>
+                                        <span class="info-text">@visita.FechaVisita</span>
+                                    </div>  
+
+                                    <div class="trait-box">
+                                        <span class="info-title">ID Visita</span>
+                                        <span class="info-text">@visita.Id</span>
+                                    </div> 
+                                </div>
+
+
+                                <div class="info-box">
+
+                                    <h3>Información Mascota</h3>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Mascota</span>
+                                        <span class="info-text">@Model.mascota.Nombre</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">ID Mascota</span>
+                                        <span class="info-text">@Model.mascota.Id</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Color</span>
+                                        <span class="info-text">@Model.mascota.Color</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Especie</span>
+                                        <span class="info-text">@Model.mascota.Especie</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Raza</span>
+                                        <span class="info-text">@Model.mascota.Raza</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-box">
+
+                                    <h3>Información Dueño</h3>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Dueño</span>
+                                        <span class="info-text">@Model.mascota.Dueno.Nombres @Model.mascota.Dueno.Apellidos</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Cédula</span>
+                                        <span class="info-text">@Model.mascota.Dueno.Cedula</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">ID Dueño</span>
+                                        <span class="info-text">@Model.mascota.Dueno.Id</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Dirección</span>
+                                        <span class="info-text">@Model.mascota.Dueno.Direccion</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Teléfono</span>
+                                        <span class="info-text">@Model.mascota.Dueno.Telefono</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">E-mail</span>
+                                        <span class="info-text">@Model.mascota.Dueno.Correo</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-box">
+                                    <h3>Información Veterinario</h3>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Veterinario</span>
+                                        <span class="info-text">@veterinarioEncontrado.Nombres @veterinarioEncontrado.Apellidos</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Cédula</span>
+                                        <span class="info-text">@veterinarioEncontrado.Cedula</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">ID Veterinario</span>
+                                        <span class="info-text">@visita.IdVeterinario</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Tarjeta Profesional</span>
+                                        <span class="info-text">@veterinarioEncontrado.TarjetaProfesional</span>
+                                    </div>
+                                    
+                                </div>
+
+
+                                <div class="info-box">
+
+                                    <h3>Observaciones</h3>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Temperatura</span>
+                                        <span class="info-text">@visita.Temperatura °C</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Peso</span>
+                                        <span class="info-text">@visita.Peso Kg</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Frecuencia Respiratoria</span>
+                                        <span class="info-text">@visita.FrecuenciaRespiratoria rpm</span>
+                                    </div>
+
+                                    <div class="trait-box">
+                                        <span class="info-title">Frecuencia Cardiaca</span>
+                                        <span class="info-text">@visita.FrecuenciaCardiaca ppm</span>
+                                    </div>
+                                    
+                                    <div class="trait-box">
+                                        <span class="info-title">Estado de ánimo</span>
+                                        <span class="info-text">@visita.EstadoAnimo</span>
+                                    </div>
+
+                                    <div class="text-box-2">
+                                        <span class="info-title">Recomendaciones</span>
+                                        <span class="info-paragraph">@visita.Recomendaciones</span>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="action-box">
+                                    <a asp-page="/Historias/EditarVisita" asp-route-visitaId="@visita.Id" asp-route-mascotaId="@Model.mascota.Id">Actualizar Datos</a>
+                                    <a asp-page="/Veterinarios/ConsultaVeterinarios" asp-route-searchTerm="@Model.mascota.Veterinario.Cedula">Ver Veterinario</a>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {x = x-1;} 
+                }
+            }
+
+
+            @if (Model.mascota.Historia.VisitasPyP.Any() == false)
+            {
+                <div class="empty-box">
+                    <h2>Lo sentimos.</h2>
+                    <h3>Aún no se ha realizado ninguna Visita.</h3>
+                </div>
+            }
+            
+        </div>
+    </div>
+</div>

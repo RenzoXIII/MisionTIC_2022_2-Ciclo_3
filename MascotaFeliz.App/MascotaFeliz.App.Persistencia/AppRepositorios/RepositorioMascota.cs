@@ -42,7 +42,7 @@ namespace MascotaFeliz.App.Persistencia
 
        public IEnumerable<Mascota> GetAllMascotas()
         {
-            return _appContext.Mascotas.Include(a => a.Dueno).Include(a => a.Veterinario).Include(a => a.Historia);
+            return _appContext.Mascotas.Include(a => a.Dueno).Include(a => a.Veterinario).Include(a => a.Historia.VisitasPyP);
         }
 
         public IEnumerable<Mascota> GetMascotasPorFiltro(string filtro)
@@ -67,7 +67,8 @@ namespace MascotaFeliz.App.Persistencia
             {
                 if (!String.IsNullOrEmpty(filtro)) // Si el filtro tiene algun valor
                 {
-                    mascotas = mascotas.Where(s => s.Dueno.Id.ToString().Contains(filtro));
+                    mascotas = mascotas.Where(s => compareInfo.IndexOf((s.Dueno.Nombres+" "+s.Dueno.Apellidos), filtro, CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreCase) > -1 ||
+                                               s.Dueno.Cedula.Contains(filtro));
                 }
             }
             return mascotas;
@@ -81,7 +82,8 @@ namespace MascotaFeliz.App.Persistencia
             {
                 if (!String.IsNullOrEmpty(filtro)) // Si el filtro tiene algun valor
                 {
-                    mascotas = mascotas.Where(s => s.Veterinario.Id.ToString().Contains(filtro));
+                    mascotas = mascotas.Where(s => compareInfo.IndexOf((s.Veterinario.Nombres+" "+s.Veterinario.Apellidos), filtro, CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreCase) > -1 ||
+                                               s.Veterinario.Cedula.Contains(filtro));
                 }
             }
             return mascotas;
@@ -89,7 +91,7 @@ namespace MascotaFeliz.App.Persistencia
 
         public Mascota GetMascota(int idMascota)
         {
-            return _appContext.Mascotas.Include(a => a.Dueno).Include(a => a.Veterinario).Include(a => a.Historia).FirstOrDefault(d => d.Id == idMascota);
+            return _appContext.Mascotas.Include(a => a.Dueno).Include(a => a.Veterinario).Include(a => a.Historia.VisitasPyP).FirstOrDefault(d => d.Id == idMascota);
         }
 
         public Mascota UpdateMascota(Mascota mascota)

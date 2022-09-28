@@ -32,18 +32,20 @@
 
                 @if (Model.mascota != null)
                 {
+                    @if (Model.mascota.Id > 0)
+                    {
                     <div class="details-box">
-                        @if (Model.mascota.Id > 0)
-                        {
-                            <div class="input-box">
-                                <span class="details">ID*</span>
-                                <input type="text" asp-for="mascota.Id" placeholder="Ingrese su Id" value="@Model.mascota.Id" required readonly>
-                            </div>
-                        }
-                        else
-                        {
-                        }
-                        
+                        <div class="input-box-2">
+                            <span class="details">ID*</span>
+                            <input type="text" asp-for="mascota.Id" placeholder="Ingrese su Id" value="@Model.mascota.Id" required readonly>
+                        </div>
+                    </div>
+                    }
+                    else
+                    {
+                    }
+
+                    <div class="details-box">
                         <div class="input-box">
                             <span class="details">Nombre*</span>
                             <input type="text" asp-for="mascota.Nombre" placeholder="Ingrese el nombre de su mascota" value="@Model.mascota.Nombre" required>
@@ -56,12 +58,14 @@
 
                         <div class="select-box">
                             <span class="details">Especie*</span>
-                            <input list="especies" asp-for="mascota.Especie" placeholder="Seleccione la especie de su mascota" value="@Model.mascota.Especie" pattern="^(Perro|Gato|Ave|)$" required>
-                            <datalist id="especies">
-                                <option value="Perro"></option>
-                                <option value="Gato"></option>
-                                <option value="Ave"></option>
-                            </datalist>
+                            <select class="form-control" asp-for="mascota.Especie" required>
+                                <option value="" disabled hidden selected>Seleccione la especie de su mascota</option>
+                                <option value="Perro">Perro</option>
+                                <option value="Gato">Gato</option>
+                                <option value="Roedor">Roedor</option>
+                                <option value="Ave">Ave</option>
+                                <option value="Reptil">Reptil</option>
+                            </select>
                         </div>
 
                         <div class="input-box">
@@ -74,9 +78,9 @@
                     <div class="details-box">
                         <div class="select-box">
                             <span class="details">Dueño*</span>
-                            <select class="form-control" asp-for="mascota.Dueno.Id">
-                                <option value="0">Seleccione el propietario</option>
-                                @foreach (var dueno in Model.listaDuenos)
+                            <select class="form-control" asp-for="mascota.Dueno.Id" required>
+                                <option value="" disabled hidden selected>Seleccione un propietario</option>
+                                @foreach (var dueno in Model.listaDuenosInOrder)
                                 {
                                     <option value="@dueno.Id">@dueno.Nombres @dueno.Apellidos - C.C.:@dueno.Cedula</option>
                                 }
@@ -85,9 +89,9 @@
 
                         <div class="select-box">
                             <span class="details">Veterinario*</span>
-                            <select class="form-control"  asp-for="mascota.Veterinario.Id">
-                                <option value="0">Seleccione el veterinario</option>
-                                @foreach (var veterinario in Model.listaVeterinarios)
+                            <select class="form-control"  asp-for="mascota.Veterinario.Id" required>
+                                <option value="" disabled hidden selected>Seleccione un veterinario</option>
+                                @foreach (var veterinario in Model.listaVeterinariosInOrder)
                                 {
                                     <option value="@veterinario.Id">@veterinario.Nombres @veterinario.Apellidos - C.C.:@veterinario.Cedula</option>
                                 }

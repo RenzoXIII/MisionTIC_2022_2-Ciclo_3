@@ -21,23 +21,23 @@
                 <a class="text-logo" asp-page="/Index">Pawmi</a>
             </li>
 
+
             <div class="menu">
+                <li><a asp-page="/Index">Inicio</a></li>
+                
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Mascotas<i class="arrow-down"></i></a>
                     <div class="dropdown-content">
                         <a asp-page="/Mascotas/EditarMascota">Crear</a>
                         <a asp-page="/Mascotas/ConsultaMascotas">Consultar Datos</a>
-                        <hr>
-                        <a asp-page="/Historia/ConsultaHistoria">Ver Historia Clínica</a>
-                        <a asp-page="/Historia/EditarVisitaPyP">Crear Visita PyP</a>
                     </div>
                 </li>
 
                 <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn, active">Propietarios<i class="arrow-down"></i></a>
+                    <a href="javascript:void(0)" class="dropbtn">Dueños<i class="arrow-down"></i></a>
                     <div class="dropdown-content">
                         <a asp-page="/Duenos/EditarDueno">Crear</a>
-                        <a asp-page="/Duenos/ConsultaDuenos" class="active">Consultar Datos</a>
+                        <a asp-page="/Duenos/ConsultaDuenos">Consultar Datos</a>
                     </div>
                 </li>
 
@@ -49,9 +49,9 @@
                     </div>
                 </li>
 
-                <li><a asp-page="/Misc/ConsultaGeneral">Consulta Base de Datos</a></li>
+                <!--li><a asp-page="/Misc/ConsultaGeneral">Consulta Base de Datos</a></li-->
 
-                <li style="float:right"><a asp-page="/Misc/Contactenos">Contáctenos</a></li>
+                <li style="float:right"><a asp-page="/Contactenos">Contáctenos</a></li>
             </div>
         </nav>
     </header>
@@ -71,7 +71,7 @@
             <hr>
             <li><a asp-page="/Terminos">Términos y Condiciones</a></li>
             <hr>
-            <li><a asp-page="/Privacidad">Política de privacidad</a></li>
+            <li><a asp-page="/Privacidad">Política de Privacidad</a></li>
             <hr>
             <li><a asp-page="/Accesibilidad">Accesibilidad</a></li>
         </div>

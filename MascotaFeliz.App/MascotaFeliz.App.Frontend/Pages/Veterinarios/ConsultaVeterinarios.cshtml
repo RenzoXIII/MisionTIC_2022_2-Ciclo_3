@@ -16,7 +16,7 @@
 
                 <div class="id-box-1">
                     <span class="details">Buscar Veterinario:</span>
-                    <input list="veterinarios" type="text" asp-for="searchTerm" placeholder="Ingrese el ID, Nombre o Cédula del veterinario que desea consultar">
+                    <input list="veterinarios" type="text" asp-for="searchTerm" placeholder="Ingrese el Nombre o la Cédula del veterinario que desea consultar">
                     @if (Model.listaVeterinarios != null)
                     {
                         <datalist id="veterinarios">
@@ -36,6 +36,12 @@
     </div>
 
     <hr>
+        <div class="button-box">
+            <a type="button" asp-page="/Index"><i class="arrow-left"></i>Regresar</a>
+            <a type="button" asp-page="/Veterinarios/EditarVeterinario">Añadir Nuevo Veterinario<i class="arrow-right"></i></a>
+        </div>
+        
+    <hr>
 
     <div class="form-container">
         <div class="results-list">
@@ -46,7 +52,7 @@
                     <div class="data-box">
                         <input type="checkbox" id="@veterinario.Id">
                         <label for="@veterinario.Id" class="profile-button">
-                            <img class="profile-photo" src="~/Imagenes/Placeholder-photo-veterinario.jpg" alt="Foto de perfil de @veterinario.Nombres @veterinario.Apellidos">
+                            <img class="profile-photo" src="~/Imagenes/P-Persona.png" alt="Foto de perfil de @veterinario.Nombres @veterinario.Apellidos">
                             <div class="button-div">
                                 <p class="button-title">@veterinario.Nombres @veterinario.Apellidos</p>
                                 <p class="button-subtitle">C.C.: @veterinario.Cedula</p>
@@ -107,7 +113,7 @@
                                 <div class="action-box">
                                     
                                     <a asp-page="/Veterinarios/EditarVeterinario" asp-route-veterinarioId="@veterinario.Id">Actualizar Datos</a>
-                                    <a asp-page="/Mascotas/ConsultaMascotas" asp-route-veterinarioId="@veterinario.Id">Ver Mascotas</a>
+                                    <a asp-page="/Mascotas/ConsultaMascotas" asp-route-searchVeterinario="@veterinario.Id">Ver Mascotas</a>
         
                                 </div>
 
@@ -128,6 +134,5 @@
             }
             
         </div>
-        <hr>
     </div>
 </div>

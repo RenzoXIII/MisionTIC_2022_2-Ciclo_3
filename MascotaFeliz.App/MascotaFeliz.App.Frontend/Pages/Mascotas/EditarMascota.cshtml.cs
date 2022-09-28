@@ -22,7 +22,9 @@ namespace MascotaFeliz.App.Frontend.Pages
 
         public IEnumerable<Mascota> listaMascotas {get;set;}
         public IEnumerable<Dueno> listaDuenos {get;set;}
+        public IEnumerable<Dueno> listaDuenosInOrder {get;set;}
         public IEnumerable<Veterinario> listaVeterinarios {get;set;}
+        public IEnumerable<Veterinario> listaVeterinariosInOrder {get;set;}
 
 
 
@@ -52,7 +54,9 @@ namespace MascotaFeliz.App.Frontend.Pages
             else{
                 listaMascotas = _repoMascota.GetAllMascotas();
                 listaDuenos = _repoDueno.GetAllDuenos();
+                listaDuenosInOrder = listaDuenos.OrderBy(x=>x.Nombres).ThenBy(x=>x.Apellidos);
                 listaVeterinarios = _repoVeterinario.GetAllVeterinarios();
+                listaVeterinariosInOrder = listaVeterinarios.OrderBy(x=>x.Nombres).ThenBy(x=>x.Apellidos);
                 return Page();
             }
         }

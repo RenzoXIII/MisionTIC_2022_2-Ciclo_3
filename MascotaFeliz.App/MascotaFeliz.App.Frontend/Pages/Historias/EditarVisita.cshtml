@@ -1,0 +1,122 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.EditarVisitaModel
+@{
+    int visitaId = Model.visita.Id;
+    int mascotaId = Model.mascota.Id;
+    @if (Model.visita.Id > 0)
+    {
+    ViewData["Title"] = "Actualizar Visita PyP";
+    }
+    else
+    {
+    ViewData["Title"] = "Añandir Nueva Visita PyP";
+    }
+}
+
+<body>
+    <div class="contenido">
+
+        <div class="title-container">
+            @if (Model.visita.Id > 0)
+            {
+            <h1>Actualizar Visita PyP</h1>
+            }
+            else
+            {
+            <h1>Añadir Nueva Visita PyP</h1>
+            }
+        </div> 
+        <p class="sub-text" >Los campos marcados con <b>*</b> son obligatorios.</p>
+        <hr>
+        <div class="form-container">
+            <form method="post">
+
+                @if (Model.visita != null)
+                {
+                    <div class="details-box">
+
+                        <input type="text" asp-for="mascota.Id" placeholder="Ingrese su Id" value="@Model.mascota.Id" required readonly hidden>
+
+                        @if (Model.visita.Id > 0)
+                        {
+                            
+                            <div class="input-box-2">
+                                <span class="details">ID*</span>
+                                <input type="text" asp-for="visita.Id" placeholder="Ingrese su Id" value="@Model.visita.Id" required readonly>
+                            </div>
+                        }
+                        else
+                        {
+                        }
+                    </div>
+
+                    <div class="details-box">
+                        <div class="input-box">
+                            <span class="details">Temperatura*</span>
+                            <input type="number" step="0.01" min="0" asp-for="visita.Temperatura" placeholder="Ingrese la temperatura registrada en °C" value="@Model.visita.Temperatura" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Peso*</span>
+                            <input type="number" step="0.01" min="0" asp-for="visita.Peso" placeholder="Ingrese el peso registrado en Kg" value="@Model.visita.Peso" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">FrecuenciaRespiratoria*</span>
+                            <input type="number" step="0.01" min="0" asp-for="visita.FrecuenciaRespiratoria" placeholder="Ingrese la frecuencia respiratoria registrada en rpm" value="@Model.visita.FrecuenciaRespiratoria" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">FrecuenciaCardiaca*</span>
+                            <input type="number" step="0.01" min="0" asp-for="visita.FrecuenciaCardiaca" placeholder="Ingrese la frecuencia cardíaca registrada en ppm" value="@Model.visita.FrecuenciaCardiaca" required>
+                        </div>
+
+                        <div class="input-box">
+                                <span class="details">Estado de Ánimo*</span>
+                                <input type="text" asp-for="visita.EstadoAnimo" placeholder="Ingrese el estado de ánimo registrado" value="@Model.visita.EstadoAnimo" required>
+                        </div>
+
+                    
+                    
+                        <div class="select-box">
+                            <span class="details">Veterinario*</span>
+                            <select class="form-control"  asp-for="visita.IdVeterinario" required>
+                                <option value="" disabled hidden selected>Seleccione un veterinario</option>
+                                @foreach (var veterinario in Model.listaVeterinariosInOrder)
+                                {
+                                    <option value="@veterinario.Id">@veterinario.Nombres @veterinario.Apellidos - C.C.:@veterinario.Cedula</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="details-box">
+                        <div class="text-box">
+                            <span class="details">Recomendaciones (Opcional)</span>
+                            <textarea asp-for="visita.Recomendaciones" placeholder="Ingrese las recomendaciones médica emitidas" ></textarea>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="button-box">
+                        <a type="button" asp-page="/Historias/ConsultaVisitas" asp-route-mascotaId="@Model.mascota.Id"><i class="arrow-left"></i>Regresar</a>
+                        <button type="submit" value="Registrar">Registrar<i class="arrow-right"></i></button>
+                    </div>
+                }
+
+                @if (Model.mascota == null)
+                {
+                    <div class="empty-box">
+                        <h2>Lo sentimos.</h2>
+                        <h3>No se encontró ningún resultado que coincida con esta búsqueda.</h3>
+                    </div>
+                    <hr>
+                    <div class="button-box">
+                        <a type="button" asp-page="/Historias/ConsultaVisitas" asp-route-mascotaId="@Model.mascota.Id"><i class="arrow-left"></i>Regresar</a>
+                    </div>
+                }
+                
+            </form>
+        </div>
+    </div>
+</body>
