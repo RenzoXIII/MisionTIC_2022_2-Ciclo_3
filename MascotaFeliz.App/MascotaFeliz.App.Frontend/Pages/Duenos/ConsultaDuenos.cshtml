@@ -111,7 +111,7 @@
 
                                 <div class="action-box">
                                     <a asp-page="/Duenos/EditarDueno" asp-route-duenoId="@dueno.Id">Actualizar Datos</a>
-                                    <a asp-page="/Mascotas/ConsultaMascotas" asp-route-searchDueno="@dueno.Id">Ver Mascotas</a>
+                                    <a asp-page="/Mascotas/ConsultaMascotas" asp-route-searchDueno="@dueno.Nombres @dueno.Apellidos">Ver Mascotas</a>
         
                                 </div>
 

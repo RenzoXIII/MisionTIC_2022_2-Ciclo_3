@@ -113,7 +113,7 @@
                                 <div class="action-box">
                                     
                                     <a asp-page="/Veterinarios/EditarVeterinario" asp-route-veterinarioId="@veterinario.Id">Actualizar Datos</a>
-                                    <a asp-page="/Mascotas/ConsultaMascotas" asp-route-searchVeterinario="@veterinario.Id">Ver Mascotas</a>
+                                    <a asp-page="/Mascotas/ConsultaMascotas" asp-route-searchVeterinario="@@veterinario.Nombres @veterinario.Apellidos">Ver Mascotas</a>
         
                                 </div>
 
